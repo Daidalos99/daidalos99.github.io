@@ -36,8 +36,7 @@ last_modified_at: 2023-01-13
 ![Alt text](../assets/img/sidebar_okinawa.jpg)  
 
 ![Alt text](../assets/img/umikaji_terrace.jpg)
-- Umikaji Terrace, Okinawa  
-***
+- Umikaji Terrace, Okinawa
 
 
 
