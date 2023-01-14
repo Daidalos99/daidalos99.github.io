@@ -1,5 +1,5 @@
 ---
-layout: grid
+layout: list
 title: 블로그를 만들다.
 description: >
   블로그 첫 게시물
@@ -15,6 +15,8 @@ toc_sticky: true
  
 date: 2023-01-13
 last_modified_at: 2023-01-13
+---
+첫 번째 게시물
 ---
 # 마크다운 첨 써봐서
 ## 이 게시물로 테스트 하는 중
