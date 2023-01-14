@@ -2,15 +2,8 @@
 layout: grid
 title: Posts
 description: >
-  This is the `list` layout for showing blog posts, which shows just the title and groups them by year of publication.
-  Check out the `blog` layout for comparison.
+  블로그 첫 게시물
 grouped: true
----
-
-
-<!-- ---
-title:  "첫 번째 블로그 게시물"
-excerpt: "블로그를 개설하고 첫 게시"
 
 categories:
   - Blog
@@ -24,7 +17,7 @@ date: 2023-01-13
 last_modified_at: 2023-01-13
 ---
 블로그를 만들었다.
----------------- -->
+----------------
 # 마크다운 첨 써봐서
 ## 이 게시물로 테스트 하는 중
 ### 오...
