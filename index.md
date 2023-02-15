@@ -16,6 +16,6 @@ sitemap: false
 📫 You can contact me via daidalos0430@gmail.com
 
 This is my blog that I record about my projects, studies, and daily life.
-Hope you can get good infomation in this archive! :smile:
+Hope you can get good infomation in this archive! 😄
 
 If you wanna know about me more, pls check 'About' category.
