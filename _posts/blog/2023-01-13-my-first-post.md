@@ -11,12 +11,11 @@ tags:
   - 첫게시물
   - 블로그
   - Blog
-
-toc: true
-toc_sticky: true
  
 date: 2023-01-13
 last_modified_at: 2023-02-15
+comments: true
+published: true
 ---
 첫 번째 게시물
 ---
