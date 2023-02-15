@@ -1,12 +1,11 @@
 ---
 layout: grid
 title: 블로그를 만들다.
+category: blog
 description: >
   블로그 첫 게시물
 grouped: true
 
-categories:
-  - blog
 tags:
   - 첫게시물
   - 블로그
