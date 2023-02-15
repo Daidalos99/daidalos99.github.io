@@ -36,7 +36,7 @@ keywords:              [computer vision, autonomous driving, robot]
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-logo:                  /assets/img/sea_shot.jpg
+logo:                  /assets/img/East_sea.jpg
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
@@ -97,7 +97,7 @@ paginate_path:         /blog/:num/
 # ----------------------------------------------------------------------------------------
  
 # Sidebar image and theme color of the site.
-accent_image:          /assets/img/sidebar_okinawa.jpg
+accent_image:          /assets/img/churaumi_okinawa.jpg
 accent_color:          rgb(79,177,186)
 
 # This is used for the `theme-color` meta tag,
