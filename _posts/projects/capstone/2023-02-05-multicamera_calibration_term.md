@@ -6,7 +6,7 @@ description: >
 grouped: true
 
 categories:
-  - Projects
+  - projects
 tags:
   - 논문리뷰
   - 용어정리
