@@ -39,8 +39,8 @@ hydejack:
   dark_mode:
     always:            false
     dynamic:           true
-    sunrise:           6
-    sunset:            18
+    sunrise:           7
+    sunset:            19
     icon:              true
 
   offline:

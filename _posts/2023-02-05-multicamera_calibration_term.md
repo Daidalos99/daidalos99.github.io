@@ -8,7 +8,9 @@ grouped: true
 categories:
   - Projects
 tags:
-  - [Projects]
+  - 논문리뷰
+  - 용어정리
+  - 논문
 
 toc: true
 toc_sticky: true
