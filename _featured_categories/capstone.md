@@ -1,9 +1,9 @@
 ---
-layout: grid
-category: project
-bigtitle: 2023 Capstone Project
+layout: post
+category: blog
+bigtitle: Library
 description: >
-  2023학년도 캡스톤 관련 게시판
+  각종 라이브러리 프레임워크 등등
 related_posts:
   -
 addons:
