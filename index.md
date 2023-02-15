@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Welcome to Daidalos99's Archive! 🎉
+title: Welcome to Daidalos99's Archive! ✌️
 sitemap: false
 ---
 ## Hello World, I'm Gijin Lee.:v:
