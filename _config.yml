@@ -96,8 +96,7 @@ paginate_path:         /blog/:num/
 # Customizaton
 # ----------------------------------------------------------------------------------------
 
-favicon: /assets/img/icon8-blog-64.png
-apple_touch_icon: /assets/img/logo.png
+favicon: /assets/img/myblog.png
 
 # Sidebar image and theme color of the site.
 accent_image:          /assets/img/churaumi.jpg
