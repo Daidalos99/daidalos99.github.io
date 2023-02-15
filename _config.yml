@@ -48,13 +48,13 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title:             Projects
-    url:               /projects/
+  - title:             Project
+    url:               /project/
     submenu:
       - title:  2023 Capstone Project
         url:    /capstone/
-  - title:             Studies
-    url:               /studies/
+  - title:             Study
+    url:               /study/
   - title:             Blog
     url:               /blog/
   - title:             Etc

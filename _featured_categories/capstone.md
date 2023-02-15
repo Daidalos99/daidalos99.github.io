@@ -1,6 +1,6 @@
 ---
 layout: grid
-category: blog
+category: project
 bigtitle: 2023 Capstone Project
 description: >
   2023학년도 캡스톤 관련 게시판
