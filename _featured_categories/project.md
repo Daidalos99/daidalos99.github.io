@@ -1,5 +1,5 @@
 ---
-layout: list
+layout: grid
 bigtitle: Project
 slug: project
 menu: true

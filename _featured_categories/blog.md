@@ -1,7 +1,6 @@
 ---
-layout: grid
-type: category
-bigtitle: Blog
+layout: blog
+title: Blog
 sitemap: true
 hide_description: false
 order: 4
