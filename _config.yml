@@ -96,7 +96,7 @@ paginate_path:         /blog/:num/
 # Customizaton
 # ----------------------------------------------------------------------------------------
 
-favicon: /assets/img/myblog.png
+favicon: /assets/img/myblog.ico
 
 # Sidebar image and theme color of the site.
 accent_image:          /assets/img/churaumi.jpg
