@@ -12,7 +12,7 @@
             {% for node in site.menu %}
                 {% assign url = node.url | default: node.href %}
                     <a 
-                    {% if forloop.first %}id="_drawer--opened"{% endif %}
+                    {% if forloop.first %}id="_drawer--closed"{% endif %}
                     href="{% include_cached smart-url url=url %}"
                     class="nav-btn top-menu {% if node.external %}external{% endif %}"
                     {% if node.rel %}rel="{{ node.rel }}"{% endif %}
