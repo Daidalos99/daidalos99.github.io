@@ -13,6 +13,6 @@ description: >
 
 ## 카테고리
 
-* [2023 Capstone Project]{:.heading.flip-title} --- 깃허브 블로그
+* [2023 Capstone Project]{:.heading.flip-title} --- 캡스톤설계
 
 [2023 Capstone Project]: /capstone/
