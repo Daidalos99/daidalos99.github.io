@@ -31,10 +31,6 @@ published: true
 팝 가수 Harry Styles의 노래 'As it was'의 하이라이트 부분이다.  
 지금 나의 인생 시기상도 그렇고, 여러 부분에 있어서 이전과는 다른 부분임이 확실하다. 이제 이전처럼 나태지옥에 살지 않도록 노력할 것이다.
 
-![Alt text](../assets/img/sidebar_okinawa.jpg)  
-
-![Alt text](../assets/img/umikaji_terrace.jpg)
-- Umikaji Terrace, Okinawa
 
 
 
