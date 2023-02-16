@@ -9,9 +9,9 @@ description: >
   각종 프로젝트 게시판
 ---
 
-# Blog
+#Project
 
-## 카테고리
+## Category
 
 * [2023 Capstone Project]{:.heading.flip-title} --- 캡스톤설계
 
