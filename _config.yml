@@ -52,7 +52,7 @@ menu:
   - title:             Project
     url:               /project/
     submenu:
-      - title:  capstone
+      - title:  2023 Capstone Project
         url:    /capstone/
   - title:             Study
     url:               /study/
