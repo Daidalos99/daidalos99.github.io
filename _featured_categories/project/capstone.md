@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: grid
 category: capstone
 bigtitle: 2023 Capstone Project
 order: 2
@@ -12,5 +12,5 @@ addons:
   - related
   - comments
 list: true
-order: 5
+order: 1
 ---

@@ -1,9 +1,10 @@
 ---
-layout: list
+layout: grid
 type: category
 bigtitle: Project
-sitemap: true
-hide_description: false
+slug: project
+menu: true
+submenu: true
 order: 1
 description: >
   각종 프로젝트 게시판
