@@ -6,8 +6,8 @@ description: >
 grouped: true
 
 categories: 
-  - project
-  - capstone
+  - Project
+  - 2023 Capstone Project
 tags:
   - 논문리뷰
   - 용어정리
@@ -16,7 +16,7 @@ tags:
 date: 2023-02-15
 last_modified_at: 2023-02-15
 comments: true
-published: true
+published: tru
 ---
 [개념정리] Camera Calibration
 ---
