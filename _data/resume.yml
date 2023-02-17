@@ -2,12 +2,12 @@
 # If you don't have a JSON Resume you can just edit this YAML file instead.
 # See also: <https://jsonresume.org/>.
 basics:
-  name: "Richard Hendricks"
-  label: "Programmer"
-  picture: "https://via.placeholder.com/240x240"
+  name: "Gijin Lee"
+  label: "Undergraduate Student"
+  picture: /assets/img/East_sea.jpg
   email: ""
-  phone: "(912) 555-4321"
-  website: "https://piedpiper.com"
+  phone: "(+82) 10-2753-9113"
+  website: "https://github.com/Daidalos99"
   summary: >
     Richard hails from Tulsa.
     He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!)
@@ -19,85 +19,88 @@ basics:
     He could tell you about it, but THAT would NOT be a “length-limited” conversation!
     Open `_data/resume.yml` to edit this text.
   location:
-    address: "2712 Broadway St"
-    postalCode: "CA 94115"
-    city: "San Francisco"
-    countryCode: "US"
-    region: "California"
+    # address: "2712 Broadway St"
+    # postalCode: "CA 94115"
+    city: "Seoul"
+    countryCode: "KR"
+    # region: "GyungGi-Do"
   profiles:
     - network: "Twitter"
-      username: "RHendricksCEO"
+      username: "daidalos430"
       url: ""
-    - network: "LinkedIn"
-      username: "Richard Hendricks"
+    # - network: "LinkedIn"
+    #   username: "Richard Hendricks"
+      url: ""
+    - network: "Instagram"
+      username: "daidalos430"
       url: ""
 work:
-  - company: "Pied Piper"
-    position: "CEO/President"
-    website: "https://piedpiper.com"
-    startDate: "2013-12-01"
+  - company: "Kwangwoon University"
+    position: "Undergraduate Student"
+    website: "https://www.kw.ac.kr/en/"
+    startDate: "2018-03-01"
     endDate: ""
     summary: >
-      Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has
-      consistently fielded high Weisman Scores™ that are not merely competitive,
-      but approach the theoretical limit of lossless compression.
+      Kwangwoon University (Abbreviated to Kwangwoon, KW and KWU) is a comprehensive, 
+      coeducational and private research university in Seoul (Wolgye Dong, Nowon-gu), 
+      South Korea, offering undergraduate and graduate programs (Master and Doctor).
     highlights:
       - "Built an algorithm for artist to detect if their music was violating copy right infringement laws"
       - "Successfully won Techcrunch Disrupt"
       - "Optimized an algorithm that holds the current world record for Weisman Scores"
-volunteer:
-  - organization: "CoderDojo"
-    position: "Teacher"
-    website: "https://coderdojo.com/"
-    startDate: "2012-01-01"
-    endDate: "2013-01-01"
-    summary: "Global movement of free coding clubs for young people."
-    highlights:
-      - "Awarded 'Teacher of the Month'"
+# volunteer:
+#   - organization: "CoderDojo"
+#     position: "Teacher"
+#     website: "https://coderdojo.com/"
+#     startDate: "2012-01-01"
+#     endDate: "2013-01-01"
+#     summary: "Global movement of free coding clubs for young people."
+#     highlights:
+#       - "Awarded 'Teacher of the Month'"
 education:
-  - institution: "University of Oklahoma"
-    area: "Information Technology"
+  - institution: "KWangwoon University"
+    area: "Robotics"
     studyType: "Bachelor"
-    startDate: "2011-06-01"
-    endDate: "2014-01-01"
-    gpa: "4.0"
-    courses:
-      - "DB1101 - Basic SQL"
-      - "CS2011 - Java Introduction"
-awards:
-  - title: "Digital Compression Pioneer Award"
-    date: "2014-11-01"
-    awarder: "Techcrunch"
-    summary: "There is no spoon."
-publications:
-  - name: "Video compression for 3d media"
-    publisher: "Hooli"
-    releaseDate: "2014-10-01"
-    website: "https://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)"
-    summary: "Innovative middle-out compression algorithm that changes the way we store data."
+    startDate: "2018-03-01"
+    endDate: "2022-02-22"
+    gpa: "3.92"
+    # courses:
+    #   - "DB1101 - Basic SQL"
+    #   - "CS2011 - Java Introduction"
+# awards:
+#   - title: "Digital Compression Pioneer Award"
+#     date: "2014-11-01"
+#     awarder: "Techcrunch"
+#     summary: "There is no spoon."
+# publications:
+#   - name: "Video compression for 3d media"
+#     publisher: "Hooli"
+#     releaseDate: "2014-10-01"
+#     website: "https://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)"
+#     summary: "Innovative middle-out compression algorithm that changes the way we store data."
 skills:
-  - name: "Web Development"
+  - name: "Programming"
     level: "Master"
     keywords:
-      - "HTML"
-      - "CSS"
-      - "Javascript"
-  - name: "Compression"
-    level: "Master"
-    keywords:
-      - "Mpeg"
-      - "MP4"
-      - "GIF"
-languages:
-  - language: "English"
-    fluency: "Native speaker"
-interests:
-  - name: "Wildlife"
-    keywords:
-      - "Ferrets"
-      - "Unicorns"
-references:
-  - name: "Erlich Bachman"
-    reference: >
-      It is my pleasure to recommend Richard, his performance working as a consultant for Main St.
-      Company proved that he will be a valuable addition to any company.
+      - "C/C++"
+      - "python"
+      - "ROS(Robot Operating System)"
+#   - name: "Compression"
+#     level: "Master"
+#     keywords:
+#       - "Mpeg"
+#       - "MP4"
+#       - "GIF"
+# languages:
+#   - language: "English"
+#     fluency: "Native speaker"
+# interests:
+#   - name: "Wildlife"
+#     keywords:
+#       - "Ferrets"
+#       - "Unicorns"
+# references:
+#   - name: "Erlich Bachman"
+#     reference: >
+#       It is my pleasure to recommend Richard, his performance working as a consultant for Main St.
+#       Company proved that he will be a valuable addition to any company.
