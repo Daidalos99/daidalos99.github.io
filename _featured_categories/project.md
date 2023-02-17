@@ -1,5 +1,5 @@
 ---
-layout: grid
+layout: list
 type: category
 bigtitle: Project
 sitemap: true
