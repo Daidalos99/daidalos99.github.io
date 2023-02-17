@@ -5,9 +5,7 @@ description: >
   상기 논문을 읽고 모르는 용어들을 정리하였다.
 grouped: true
 
-categories: 
-  - project
-  - capstone
+categories: [project, capstone]
 tags:
   - 논문리뷰
   - 용어정리
