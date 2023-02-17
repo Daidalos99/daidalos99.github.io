@@ -31,7 +31,8 @@ description:           >
 tagline:               Archive of what I learned
 
 # A list of keywords for your blog
-keywords:              [computer vision, autonomous driving, deep learning, machine learning, robot]
+
+keywords:              ["computer vision", "autonomous driving, "deep learning", "machine learning", "robot"]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
@@ -79,12 +80,27 @@ legal:
 copyright:             © 2023. All rights reserved.
 
 # Format of the permalinks
-permalink:             /blog/:categories/:year-:month-:day-:title/
+permalink:             /:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              10
-paginate_path:         /blog/:num/
+paginate_path:         /:num/
 
+# Collections
+# ----------------------------------------------------------------------------------------
+
+# collections:
+#   featured_categories:
+#     permalink:         /:name/
+#     output:            true
+
+#   featured_tags:
+#     permalink:         /:name/
+#     output:            true
+
+#   projects:
+#     permalink:         /projects/:path/
+#     output:            true
 
 # Theme
 # ---------------------------------------------------------------------------------------
