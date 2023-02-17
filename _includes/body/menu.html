@@ -7,11 +7,20 @@
         <span class="icon-menu"></span>
       </a>
       <!--상단메뉴 카테고리들 -->
-      <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+      <div class="top-menu">
+        {% if site.menu %}
+            {% for node in site.menu %}
+                {% assign url = node.url | default: node.href %}
+                    <a 
+                    {% if forloop.first %}id="_drawer--opened"{% endif %}
+                    href="{% include_cached smart-url url=url %}"
+                    class="nav-btn top-menu {% if node.external %}external{% endif %}"
+                    {% if node.rel %}rel="{{ node.rel }}"{% endif %}
+                    >
+                    {{ node.name | default:node.title }}
+                    </a>
+            {% endfor %}
+        {% endif %}
       </div>
       <!-- <div class="topnav">
         <a class="active" href="#home">Home</a>
