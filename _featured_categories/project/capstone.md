@@ -7,7 +7,7 @@ description: >
   캡스톤설계 게시판
 
 related_posts:
-  -
+  - capstone
 addons:
   - related
   - comments
