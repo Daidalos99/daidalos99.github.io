@@ -99,9 +99,9 @@ collections:
     permalink:         /:name/
     output:            true
 
-  projects:
-    permalink:         /project/:path/
-    output:            true
+  # projects:
+  #   permalink:         /project/:path/
+  #   output:            true
 
 
 # Theme
