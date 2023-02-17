@@ -87,11 +87,28 @@ paginate:              10
 paginate_path:         /:num/
 
 
+# Collections
+# ----------------------------------------------------------------------------------------
+
+collections:
+  featured_categories:
+    permalink:         /:name/
+    output:            true
+
+  featured_tags:
+    permalink:         /:name/
+    output:            true
+
+  projects:
+    permalink:         /project/:path/
+    output:            true
+
+
 # Theme
 # ---------------------------------------------------------------------------------------
 
 # theme: jekyll-theme-hydejack
-# remote_theme: hydecorp/hydejack@v9
+remote_theme: hydecorp/hydejack@v9.1.6
 
 
 # Customizaton
@@ -298,23 +315,6 @@ hydejack:
     cache_version:     13
     precache_assets:
       - /assets/img/swipe.svg
-
-
-# Collections
-# ----------------------------------------------------------------------------------------
-
-collections:
-  featured_categories:
-    permalink:         /:name/
-    output:            true
-
-  featured_tags:
-    permalink:         /:name/
-    output:            true
-
-  projects:
-    permalink:         /projects/:path/
-    output:            true
 
 
 # File inclusion/exclusion
