@@ -6,10 +6,7 @@ description: >
 grouped: true
 
 categories: [project, capstone]
-tags:
-  - 논문리뷰
-  - 용어정리
-  - 논문
+tags:       [project, capstone]
  
 date: 2023-02-15
 last_modified_at: 2023-02-15
