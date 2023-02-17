@@ -9,15 +9,13 @@ basics:
   phone: "(+82) 10-2753-9113"
   website: "https://github.com/Daidalos99"
   summary: >
-    Richard hails from Tulsa.
-    He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!)
-    Before starting Pied Piper, he worked for Hooli as a part time software developer.
-    While his work focuses on applied information theory,
-    mostly optimizing lossless compression schema of both the length-limited and adaptive variants,
-    his non-work interests range widely,
-    everything from quantum computing to chaos theory.
-    He could tell you about it, but THAT would NOT be a “length-limited” conversation!
-    Open `_data/resume.yml` to edit this text.
+    Hi! I'm Gijin Lee.
+    I'm studying Robotics in Kwangwoon University(2018~), South Korea.
+    My recent interest is about autonomous driving, computer vision, SLAM, ML/DL.
+    I like running, swimming, playing games, etc. 
+    You can contact me via daidalos0430@gmail.com. 
+    This is my blog that I record about my projects, studies, and daily life.
+    Hope you can get good infomation in this archive! 😄    
   location:
     # address: "2712 Broadway St"
     # postalCode: "CA 94115"
@@ -44,10 +42,10 @@ work:
       Kwangwoon University (Abbreviated to Kwangwoon, KW and KWU) is a comprehensive, 
       coeducational and private research university in Seoul (Wolgye Dong, Nowon-gu), 
       South Korea, offering undergraduate and graduate programs (Master and Doctor).
-    highlights:
-      - "Built an algorithm for artist to detect if their music was violating copy right infringement laws"
-      - "Successfully won Techcrunch Disrupt"
-      - "Optimized an algorithm that holds the current world record for Weisman Scores"
+    # highlights:
+    #   - "Built an algorithm for artist to detect if their music was violating copy right infringement laws"
+    #   - "Successfully won Techcrunch Disrupt"
+    #   - "Optimized an algorithm that holds the current world record for Weisman Scores"
 # volunteer:
 #   - organization: "CoderDojo"
 #     position: "Teacher"
