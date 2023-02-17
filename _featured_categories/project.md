@@ -1,15 +1,13 @@
 ---
 layout: grid
+type: category
 bigtitle: Project
-slug: project
-menu: true
-submenu: false
-order: 2
+sitemap: true
+hide_description: false
+order: 1
 description: >
   각종 프로젝트 게시판
 ---
-
-#Project
 
 ## Category
 
