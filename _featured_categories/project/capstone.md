@@ -1,5 +1,5 @@
 ---
-layout: grid
+layout: post
 category: capstone
 bigtitle: 2023 Capstone Project
 order: 2
