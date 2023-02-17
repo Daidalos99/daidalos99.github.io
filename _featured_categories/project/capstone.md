@@ -1,6 +1,6 @@
 ---
 layout: grid
-category: capstone
+category: project
 bigtitle: 2023 Capstone Project
 order: 2
 description: >
