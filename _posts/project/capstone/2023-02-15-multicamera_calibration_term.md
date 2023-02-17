@@ -7,6 +7,7 @@ grouped: true
 
 categories: 
   - project
+  - capstone
 tags:
   - 논문리뷰
   - 용어정리
