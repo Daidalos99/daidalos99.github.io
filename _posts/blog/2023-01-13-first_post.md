@@ -1,5 +1,5 @@
 ---
-layout: grid
+layout: post
 title: 블로그를 만들다.
 description: >
   블로그 첫 게시물
