@@ -6,7 +6,6 @@ description: >
 grouped: true
 
 categories:
-  - project
   - capstone
 tags: 
   - 카메라기하학
