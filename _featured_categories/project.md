@@ -1,6 +1,6 @@
 ---
 layout: grid
-bigtitle: Project
+title: Project
 slug: project
 description: >
   각종 프로젝트 게시판
