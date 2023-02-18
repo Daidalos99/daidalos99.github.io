@@ -6,7 +6,7 @@ description: >
 grouped: true
 
 categories: [project, capstone]
-tags:       [project, capstone]
+tags: [project, capstone]
  
 date: 2023-02-15
 last_modified_at: 2023-02-15
