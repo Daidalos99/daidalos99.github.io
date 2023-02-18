@@ -13,5 +13,5 @@ last_modified_at: 2023-02-15
 comments: true
 published: true
 ---
-[개념정리] Camera Calibration
+Camera Calibration
 ---
