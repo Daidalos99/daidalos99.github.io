@@ -2,8 +2,8 @@
 layout: about
 title:  About
 description: >
-  내 소개
-hide_description: true
+  About me
+# hide_description: true
 left_column:
   - work
   - volunteer
