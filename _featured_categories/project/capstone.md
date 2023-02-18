@@ -1,8 +1,8 @@
 ---
-layout: grid
+layout: list
 # category: capstone
 bigtitle: 2023 Capstone Project
-slug: project
+slug: capstone
 description: >
   캡스톤설계 게시판
 ---
