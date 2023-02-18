@@ -17,13 +17,13 @@ Hope you can get good infomation in this archive! 😄
   
 ## Information
 Name: Gijin, Lee
-Education: Kwangwoon University(2018~)
-Major: Robotics
-Current step: Undergraduate Student(Bachelor)
-Email: daidalos0430@gmail.com
+Education: Kwangwoon University(2018~)  
+Major: Robotics  
+Current step: Undergraduate Student(Bachelor)  
+Email: daidalos0430@gmail.com  
 
 ## Profiles
-Github: https://github.com/Daidalos99
-Twitter: https://twitter.com/daidalos430
-Instagram: https://www.instagram.com/daidalos430/
-Curriculum Vitae: https://github.com/Daidalos99/Curriculum-Vitae/blob/main/GijinLee_CV.pdf
+Github: https://github.com/Daidalos99  
+Twitter: https://twitter.com/daidalos430  
+Instagram: https://www.instagram.com/daidalos430/  
+Curriculum Vitae: https://github.com/Daidalos99/Curriculum-Vitae/blob/main/GijinLee_CV.pdf  
