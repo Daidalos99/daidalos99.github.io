@@ -5,8 +5,9 @@ description: >
   블로그 첫 게시물
 grouped: true
 
-categories: [blog]
-tags: [blog]
+categories:
+  - blog
+tags:
  
 date: 2023-01-13
 last_modified_at: 2023-02-15
