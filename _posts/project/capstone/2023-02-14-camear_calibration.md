@@ -6,6 +6,7 @@ description: >
 grouped: true
 
 categories:
+  - project
   - capstone
 tags: 
  
