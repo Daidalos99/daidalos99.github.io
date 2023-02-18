@@ -7,7 +7,7 @@ grouped: true
 
 categories: 
   - study
-  - cvi
+  - cmvi
 tags: 
   - 카메라기하학
   - 카메라캘리브레이션

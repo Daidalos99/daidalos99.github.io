@@ -62,7 +62,7 @@ menu:
     url:               /study/
     submenu:
       - title:            Computer Vision
-        url:              /cvi/
+        url:              /cmvi/
   - title:             Etc
     url:               /etc/
   - title:             About
