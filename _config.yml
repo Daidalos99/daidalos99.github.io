@@ -61,8 +61,8 @@ menu:
   - title:             Study
     url:               /study/
     submenu:
-      - title:            Computer vision
-        url:              /computer/
+      - title:            Computer Vision
+        url:              /computer_vision/
   - title:             Etc
     url:               /etc/
   - title:             About
