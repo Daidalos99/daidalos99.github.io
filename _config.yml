@@ -62,7 +62,7 @@ menu:
     url:               /study/
     submenu:
       - title:            Computer Vision
-        url:              /computer_vision/
+        url:              /computervision/
   - title:             Etc
     url:               /etc/
   - title:             About
