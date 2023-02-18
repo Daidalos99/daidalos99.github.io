@@ -6,7 +6,6 @@ description: >
 grouped: false
 
 categories:
-  - project
   - capstone
 tags: 
   - 논문리뷰
