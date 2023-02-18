@@ -53,7 +53,7 @@ menu:
     url:               /project/
     submenu:
       - title:  2023 Capstone Project
-        url:    /capstone/
+        url:    /2023 Capstone Project/
   - title:             Study
     url:               /study/
   - title:             Blog
