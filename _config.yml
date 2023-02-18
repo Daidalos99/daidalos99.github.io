@@ -60,6 +60,9 @@ menu:
         url:              /samnet/
   - title:             Study
     url:               /study/
+    submenu:
+      - title:            Computer vision
+        url:              /computer_vision/
   - title:             Etc
     url:               /etc/
   - title:             About
