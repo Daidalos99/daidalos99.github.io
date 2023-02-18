@@ -5,7 +5,9 @@ description: >
   상기 논문을 읽고 모르는 용어들을 정리하였다.
 grouped: false
 
-categories: [project, capstone]
+categories: 
+  - project
+  - capstone
 tags: 
   - 논문리뷰
   - 카메라캘리브레이션
