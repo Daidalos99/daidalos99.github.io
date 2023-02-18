@@ -26,4 +26,4 @@ Email: daidalos0430@gmail.com
 Github: https://github.com/Daidalos99
 Twitter: https://twitter.com/daidalos430
 Instagram: https://www.instagram.com/daidalos430/
-Curriculum Vitae: https://github.com/Daidalos99/Curriculum-Vitae
+Curriculum Vitae: https://github.com/Daidalos99/Curriculum-Vitae/blob/main/GijinLee_CV.pdf
