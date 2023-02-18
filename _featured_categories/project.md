@@ -7,7 +7,7 @@ description: >
 ---
 
 * [2023 Capstone Project]{:.heading.flip-title} --- 캡스톤설계
-* [SAM-Net]{:.heading.flip-title} --- SAM-Net
+<!-- * [SAM-Net]{:.heading.flip-title} --- SAM-Net -->
 
 [2023 Capstone Project]: /capstone/
-[SAM-Net]: /samnet/
+<!-- [SAM-Net]: /samnet/ -->
