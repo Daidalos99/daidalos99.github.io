@@ -7,5 +7,7 @@ description: >
 ---
 
 * [2023 Capstone Project]{:.heading.flip-title} --- 캡스톤설계
+* [Study]{:.heading.flip-title} --- 스터디
 
 [2023 Capstone Project]: /capstone/
+[Study]: /study/
