@@ -49,6 +49,8 @@ author:
 
 # Add links to the sidebar.
 menu:
+  - title:             All
+    url:               /all/
   - title:             Project
     url:               /project/
     submenu:
@@ -58,13 +60,8 @@ menu:
         url:    /samnet/
   - title:             Study
     url:               /study/
-  - title:             All
-    url:               /all/
   - title:             Etc
     url:               /etc/
-    submenu:
-      - title:  Daily Life
-        url:    /daily/
   - title:             About
     url:               /about/
 
