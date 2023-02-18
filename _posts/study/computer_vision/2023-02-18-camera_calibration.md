@@ -7,7 +7,7 @@ grouped: true
 
 categories: 
   - study
-  - cv
+  - comv
 tags: 
   - 카메라기하학
   - 카메라캘리브레이션
