@@ -58,8 +58,8 @@ menu:
         url:    /samnet/
   - title:             Study
     url:               /study/
-  - title:             Chronicle
-    url:               /chronicle/
+  - title:             Blog
+    url:               /blog/
   - title:             Etc
     url:               /etc/
     submenu:
