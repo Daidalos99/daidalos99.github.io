@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: grid
 title: 2023 Capstone Project
 slug: capstone
 description: >
