@@ -1,10 +1,8 @@
 ---
 layout: grid
-category: capstone
+# category: capstone
 bigtitle: 2023 Capstone Project
-order: 2
+slug: project
 description: >
   캡스톤설계 게시판
 ---
-
-## 2023 Capstone Project
