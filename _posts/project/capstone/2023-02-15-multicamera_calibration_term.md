@@ -9,6 +9,7 @@ categories:
   - project
   - capstone
 tags: 
+  - 논문 리뷰
  
 date: 2023-02-15
 last_modified_at: 2023-02-15
