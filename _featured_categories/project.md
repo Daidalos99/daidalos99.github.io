@@ -8,4 +8,4 @@ description: >
 
 * [2023 Capstone Project]{:.heading.flip-title} --- 캡스톤설계
 
-[2023 Capstone Project]: /capstone/
+[2023 Capstone Project]: /2023 Capstone Project/
