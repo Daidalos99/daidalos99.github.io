@@ -85,8 +85,8 @@ copyright:             © 2023. All rights reserved.
 permalink:             /:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
-paginate:              10
-paginate_path:         /:num/
+paginate:              8
+paginate_path:         /blog/:num/
 
 
 # Collections
