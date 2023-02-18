@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [용어정리] A Convinent Multi-Camera Self-Calibration for Virtual Environments 
+title: A Convinent Multi-Camera Self-Calibration for Virtual Environments 
 description: >
   상기 논문을 읽고 모르는 용어들을 정리하였다.
 grouped: true
