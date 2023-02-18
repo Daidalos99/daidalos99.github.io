@@ -22,8 +22,8 @@ Major: Robotics
 Current step: Undergraduate Student(Bachelor)  
 Email: daidalos0430@gmail.com  
 
-## Profiles
-Github: https://github.com/Daidalos99  
-Twitter: https://twitter.com/daidalos430  
-Instagram: https://www.instagram.com/daidalos430/  
-Curriculum Vitae: https://github.com/Daidalos99/Curriculum-Vitae/blob/main/GijinLee_CV.pdf  
+## Profiles 
+Github: <a href="https://github.com/Daidalos99">https://github.com/Daidalos99</a>  
+Twitter: <a href="https://twitter.com/daidalos430">https://twitter.com/daidalos430</a>   
+Instagram: <a href="https://www.instagram.com/daidalos430/">https://www.instagram.com/daidalos430/</a>  
+Curriculum Vitae: <a href="https://github.com/Daidalos99/Curriculum-Vitae/blob/main/GijinLee_CV.pdf">https://github.com/Daidalos99/Curriculum-Vitae/blob/main/GijinLee_CV.pdf</a>  
