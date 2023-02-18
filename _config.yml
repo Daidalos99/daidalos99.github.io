@@ -58,8 +58,8 @@ menu:
         url:    /samnet/
   - title:             Study
     url:               /study/
-  - title:             Blog
-    url:               /blog/
+  - title:             All
+    url:               /all/
   - title:             Etc
     url:               /etc/
     submenu:
@@ -86,7 +86,7 @@ permalink:             /:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              8
-paginate_path:         /Chronicle/:num/
+paginate_path:         /all/:num/
 
 
 # Collections

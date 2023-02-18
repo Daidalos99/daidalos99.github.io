@@ -6,7 +6,7 @@ description: >
 grouped: true
 
 categories:
-  - blog
+  - etc
 tags:
  
 date: 2023-01-13
