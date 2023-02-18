@@ -1,5 +1,5 @@
 ---
-layout: list
+layout: post
 title: 2023 Capstone Project
 slug: capstone
 description: >
