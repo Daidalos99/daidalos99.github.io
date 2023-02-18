@@ -54,10 +54,10 @@ menu:
   - title:             Project
     url:               /project/
     submenu:
-      - title:  2023 Capstone Project
-        url:    /capstone/
-      - title:  SAM-Net
-        url:    /samnet/
+      - title:            2023 Capstone Project
+        url:              /capstone/
+      - title:            SAM-Net
+        url:              /samnet/
   - title:             Study
     url:               /study/
   - title:             Etc
