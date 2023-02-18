@@ -1,3 +1,3 @@
 # daidalos99.github.io
-my blog
+Welcome to my blog!
 https://daidalos99.github.io/

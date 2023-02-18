@@ -25,13 +25,13 @@ basics:
   profiles:
     - network: "Twitter"
       username: "daidalos430"
-      url: ""
+      url: "https://twitter.com/daidalos430"
     # - network: "LinkedIn"
     #   username: "Richard Hendricks"
       url: ""
     - network: "Instagram"
       username: "daidalos430"
-      url: ""
+      url: "https://www.instagram.com/daidalos430/"
 work:
   - company: "Kwangwoon University"
     position: "Undergraduate Student"
