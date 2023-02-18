@@ -6,6 +6,7 @@ description: >
 grouped: true
 
 categories: 
+  - study
   - computer_vision
 tags: 
   - 카메라기하학
