@@ -2,11 +2,11 @@
 layout: post
 title: Camera Calibration 
 description: >
-  상기 논문을 읽고 모르는 용어들을 정리하였다.
+  카메라 켈리브레이션에 대해 정리해본다.
 grouped: true
 
 categories: [project, capstone]
-tags: [project, capstone]
+tags: 
  
 date: 2023-02-15
 last_modified_at: 2023-02-15
