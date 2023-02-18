@@ -8,4 +8,4 @@ description: >
 
 * [Computer Vision]{:.heading.flip-title} --- 컴퓨터비전 공부
 
-[Computer Vision]: /computer_vision/
+[Computer Vision]: /cv/
