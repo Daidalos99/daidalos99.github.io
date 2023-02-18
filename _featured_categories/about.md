@@ -5,6 +5,8 @@ title:  About
 description: >
   About me
 ---
+## About
+---
 ## Hi! I'm Gijin Lee.
 I'm studying Robotics in Kwangwoon University(2018~), South Korea.  
 My recent interest is about autonomous driving, computer vision, SLAM, ML/DL.  
