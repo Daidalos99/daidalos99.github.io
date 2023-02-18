@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: list
 bigtitle: Blog
 slug: blog
 description: >
