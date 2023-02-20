@@ -71,18 +71,17 @@ Camera Calibration의 개념 이전에 카메라의 작동원리부터 알아야
 우항의 세번째 행렬은 3차원 열벡터이며, 이의 4번째 원소 '1'은 scale을 나타낸다. 세계 좌표계야 당연히
 1의 비율을 가질 것이기에 1로 고정될 것이다. 이제, 이 앞에 위에서 필요하다고 한 변환들이 곱해져 나아가는 형태가 된다.
 
-이제, 우변의 나머지 행렬의 의미를 파악해보자. 우변은 앞에서부터 **A[R|t][x y z 1]^T**의 형태로도 쓸 수 있으며,
-여기서 **A는 =camera coordinate to image coordinate(3d to 2d), [R|t]는 world coordinate to camera coordinate**를 의미한다.
+이제, 우변의 나머지 행렬의 의미를 파악해보자. 우변은 앞에서부터 **A[R|t][x y z 1]^T**의 형태로도 쓸 수 있으며, 여기서 **A는 =camera coordinate to image coordinate(3d to 2d), [R|t]는 world coordinate to camera coordinate**를 의미한다.
 
 A에서 **f_x, f_y**는 x, y방향으로의 초점거리(-렌즈와 이미지센서간의 정렬 정도)를 의미하며, 픽셀 단위로 나타난다. 
 A가 3d to 2d 변환행렬이므로 z성분은 따로 없다. 최신 카메라에서는 f_x, f_y를 거의 같다고 본다.
 
-다음으로 **c_x, c_y**는 카메라 렌즈에서 투영된 이미지에 내린 수선의 영상좌표이고, 만약 f_x, f_y가 둘다 0이라고 한다면, 
+다음으로 **c_x, c_y**는 카메라 렌즈에서 투영된 이미지에 내린 수선의 영상좌표이고, 만약 f_x, f_y가 둘다 0이라고 한다면,
 (c_x, c_y)는 이미지의 중심이 될 것이다.
 
 skew_cf_x는 **비대칭 계수(skew coefficient)**의 약자이며, 이미지센서의 cell array의 y축이 틀어진 정도를 나타낸다.
 그리고 오른쪽 아래 1은 scale 계수를 나타낸다.
-
+  
 다음으로 **[R|t]**는 선형대수학에서 나오는 transform matrix와 동일하므로 더 설명하지 않겠다.
 
 좌변의 **[x y 1]^T**는 이미지 평면(2d)상의 좌표를 나타낸 것이며 마찬가지로 1은 scale 계수이다.
