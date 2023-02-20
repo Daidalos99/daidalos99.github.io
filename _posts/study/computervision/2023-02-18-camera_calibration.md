@@ -20,3 +20,8 @@ published: true
 ---
 Camera Calibration
 ---
+<!-- ![GitHub Logo](/images/logo.png) -->
+
+이 포스트에는 1년 전쯤 학부연구생을 하며 카메라 캘리브레이션에 대해 공부했던 내용들을 정리하였다.
+
+![slide01](/assets/img/study/computervision/camera_calibration/slide01.PNG)
