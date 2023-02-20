@@ -32,4 +32,7 @@ Camera Calibration이란 위와 같이 3차원인 세상을 2차원인 이미지
 Camera Calibration의 개념 이전에 카메라의 작동원리부터 알아야 한다. 고전적인 카메라는  
 이미 많이 알려져 있듯이 바늘 구멍을 통해 외부의 상이 거꾸로 투영되는 형식이다.
 이때, 바늘구멍(렌즈)으로부터 상이 맺히는 곳(이미지 센서)까지의 거리가 초점거리 f 이다.  
-렌즈를 사용하는 카메라는 영상 왜곡의 가능성이 있기에, Camera Calibration이 필요하다.  
+렌즈를 사용하는 카메라는 영상 왜곡의 가능성이 있기에, Camera Calibration이 필요하다.
+또한, **실제 3차원 좌표계에서는 위쪽이 z축이지만, 카메라 좌표계(이미지 좌표계와 다름!!)에서는 광축(앞쪽)방향을 z축으로 둔다. **
+
+![slide03](/assets/img/study/computervision/camera_calibration/slide03.PNG)  
