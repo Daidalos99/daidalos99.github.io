@@ -53,8 +53,8 @@ Camera Calibration의 개념 이전에 카메라의 작동원리부터 알아야
 
 ![coordinates](/assets/img/study/computervision/camera_calibration/coordinates.jpg)  
 
-밑으로 넘어가기 전, 우선 좌표계에 대한 이해가 필요하다. 실제 세계의 물체를 카메라로 찍었을 때,  
-그 이미지가 출력되는 과정은 다음과 같다. 먼저 **세계 좌표계(world coordinates)**에서 **카메라 좌표계(camera coordinates)**로  
+밑으로 넘어가기 전, 우선 좌표계에 대한 이해가 필요하다. 실제 세계의 물체를 카메라로 찍었을 때,
+그 이미지가 출력되는 과정은 다음과 같다. 먼저 **세계 좌표계(world coordinates)**에서 **카메라 좌표계(camera coordinates)**로
 한번 변환이 된다. 위에서 말했듯, 세계 좌표계는 위쪽이 z, 카메라 좌표계는 앞쪽을 z축으로 한다.  
 카메라 좌표계로 변환된 이미지는 이미지센서에 투영이 되는데 이를 **이미지 좌표계(image coordinates)**라 한다.
   
