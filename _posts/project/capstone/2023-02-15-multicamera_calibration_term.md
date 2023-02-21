@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Convinent Multi-Camera Self-Calibration for Virtual Environments 
+title: A Convenient Multi-Camera Self-Calibration for Virtual Environments 
 description: >
   상기 논문을 읽고 모르는 용어들을 정리하였다.
 grouped: true
@@ -18,7 +18,7 @@ last_modified_at: 2023-02-15
 comments: true
 published: true
 ---
-[용어정리] A Convinent Multi-Camera Self-Calibration for Virtual Environments 
+[용어정리] A Convenient Multi-Camera Self-Calibration for Virtual Environments 
 ---
 
 나는 아직 선형대수학에 대한 지식도 해박하지 못하고, 또 컴퓨터비전을 잘 알지도 못하기 때문에 이 논문을 읽으면서 용어적인 제약이 꽤 있었다.
