@@ -34,7 +34,7 @@ published: true
 - Rank
 - Factorization(rank-n factorization)
 - Intersection
-- Basis(기저)
+- Basis(기저)  
     위키백과에 따르면, 기저는 다음과 같은 뜻을 지닌다.
     > 선형대수학에서, 어떤 벡터 공간의 기저(basis)는 그 벡터 공간을 선형생성하는 선형독립인 벡터들이다. 달리 말해, 벡터 공간의 임의의 벡터에게 선형결합으로서 유일한 표현을 부여하는 벡터들이다.
 - Sub-matrix
