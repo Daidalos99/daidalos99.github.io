@@ -25,7 +25,7 @@ published: true
 따라서, 본 논문을 한번 읽고, 모르는 용어에 대하여 한번 짚고 넘어가고자 한다. 후에 이 논문을 읽을 분(이 계실진 모르지만..)에게 도움이 되면 좋겠다.
 여러 용어들은 Linear Algebra, Camera Geometry, Epipolar Geometry 등으로 분류하여 정리하고자 하였다.  
 선형대수학 용어 정리에는 아래 링크(로스카츠의 AI 머신러닝 블로그의 정철원님 게시물)를 참고하였다.  
-(https://losskatsu.github.io/linear-algebra/rank-dim/#%EC%B0%A8%EC%9B%90dimension)
+[losskatsu.github.io](https://losskatsu.github.io/linear-algebra/rank-dim/#%EC%B0%A8%EC%9B%90dimension)
 
 ## Linear Algebra
 - **Linear / Non Linear**
