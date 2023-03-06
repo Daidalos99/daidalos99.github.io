@@ -14,7 +14,7 @@ tags:
   - 멀티카메라
  
 date: 2023-02-15
-last_modified_at: 2023-02-15
+last_modified_at: 2023-03-06
 comments: true
 published: true
 ---
@@ -35,6 +35,8 @@ published: true
 - Factorization(rank-n factorization)
 - Intersection
 - Basis(기저)
+    위키백과에 따르면, 기저는 다음과 같은 뜻을 지닌다.
+    > 선형대수학에서, 어떤 벡터 공간의 기저(basis)는 그 벡터 공간을 선형생성하는 선형독립인 벡터들이다. 달리 말해, 벡터 공간의 임의의 벡터에게 선형결합으로서 유일한 표현을 부여하는 벡터들이다.
 - Sub-matrix
 - Matrix Decomposition
 - (2D) Correlation
