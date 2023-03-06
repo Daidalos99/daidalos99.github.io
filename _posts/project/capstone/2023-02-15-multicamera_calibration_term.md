@@ -33,8 +33,6 @@ published: true
 - **Projective**
 - **SVD(Singular Value Decomposition)**
 - **Symmetric**
-- **Rank**  
-    어떠한 행렬이 있을 때, 그 행렬의 열벡터에 의해 span된 벡터공간의 차원(위키)
 - **Factorization(rank-n factorization)**
 - **Intersection**
 - **Basis(기저)**  
@@ -45,7 +43,13 @@ published: true
 - **Subspace**  
     부분공간은 기저벡터로 만들 수 있는 전체 벡터공간의 일부분이다. 전체 공간이 3차원이면 그 기저벡터 3개중 일부인 2개 혹은 1개를 사용해서 만든 선이나 면이 부분공간이 될 것이다.  
 - **Span**  
-    전체 벡터공간이 5차원이고, 3개의 기저 벡터 집합을 S라고 하고, 집합 S에 속하는 기저 벡터들로 구성되는 3차원 부분 공간을 W라고 했을 때 S는 부분 공간 W를 span한다고 말하고 W = span(S) 라고 표현한다. 위의 예에서는 전체가 5차원 이지만 기저벡터가 3차원까지만 표현 가능하므로, span되는 공간은 W = span(S) = 3차원이라고 할 수 있다.
+    전체 벡터공간이 5차원이고, 3개의 기저 벡터 집합을 S라고 하고, 집합 S에 속하는 기저 벡터들로 구성되는 3차원 부분 공간을 W라고 했을 때 S는 부분 공간 W를 span한다고 말하고 W = span(S) 라고 표현한다. 위의 예에서는 전체가 5차원 이지만 기저벡터가 3차원까지만 표현 가능하므로, span되는 공간은 W = span(S) = 3차원이라고 할 수 있다.  
+- **Rank**  
+    어떠한 행렬이 있을 때, 그 행렬의 열벡터에 의해 span된 벡터공간의 차원(위키)을 의미한다. 한 행렬의 행공간과 열공간은 차원이 같다고 할 수 있는데, 이러한 특성 떄문에 아래와 같은 성질이 성립한다.
+    > rank(A) = rank(A^T)  
+
+    즉, 행렬 A의 랭크와 그 전치행렬의 랭크는 같다는 것이다.  
+    다음으로, **행렬 A가 (n x m)**일때, **n = rank(A) or m = rank(A^T)**이면 **full rank**라고 한다.
 - **Sub-matrix**
 - **Matrix Decomposition**
 - **(2D) Correlation**
