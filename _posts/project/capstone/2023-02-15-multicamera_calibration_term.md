@@ -27,7 +27,7 @@ published: true
 선형대수학 용어 정리에는 아래 링크(로스카츠의 AI 머신러닝 블로그의 정철원님 게시물)를 참고하였다.  
 (https://losskatsu.github.io/linear-algebra/rank-dim/#%EC%B0%A8%EC%9B%90dimension)
 
-### Linear Algebra
+## Linear Algebra
 - **Linear / Non Linear**
 - **Euclidian**
 - **Projective**
@@ -50,7 +50,7 @@ published: true
 - **Matrix Decomposition**
 - **(2D) Correlation**
 
-### Camera Geometry
+## Camera Geometry
 - **Orthogonal**
 - **Skew**
 - **Focal Length**
@@ -59,7 +59,7 @@ published: true
 - **Intrinsic, Extrinsic Matrix**
 
 
-### Epipolar Geometry
+## Epipolar Geometry
 - **Coplanar(ity)**
 - **Functional Matrix**
 - **Homography**
@@ -67,10 +67,10 @@ published: true
 - **Epipolar Geometry**
 - **Base-line**
 
-### Image Processing Algorithm
+## Image Processing Algorithm
 - **RANSAC(pairwise RANSAC analysis, RANSAC 7-point algorithm)**
 
-### Etc.
+## Etc.
 - **Working Volume**
 - **Reconstruction**
 - **Bundle Adjustment(BA)**
