@@ -49,7 +49,7 @@ published: true
     \\[rank(A) = rank(A^T)\\] 
 
     즉, 행렬 A의 랭크와 그 전치행렬의 랭크는 같다는 것이다.  
-    다음으로, **행렬 A가 (n x m)**일때, **n = rank(A) or m = rank(A^T)**이면 **full rank**라고 한다.
+    다음으로, \\(행렬 A가 (n x m)\\)일때, \\(n = rank(A) or m = rank(A^T)\\)이면 **full rank**라고 한다.
 - **Sub-matrix**
 - **Matrix Decomposition**
 - **(2D) Correlation**
