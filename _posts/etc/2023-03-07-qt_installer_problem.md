@@ -27,7 +27,8 @@ QT Online Installer 설치시 속도 느림 문제 해결
 
 1. 우선 관리자 권한으로 cmd를 실행한다.(그냥 cmd에서 하면 왠지 안될 것 같아 관리자 권한으로 실행함)  
 ![img01](/assets/img/etc/qt_installer_problem/administrator_cmd.png)
-2. qt 설치용 exe파일이 있는 폴더의 경로로 들어간다. 이때, cd, dir 등의 명령어를 잘 모르겠다면, 그냥 파일 관리자로 들어가서 exe파일의 속성을 누른 후, 아래의 사진과 같이 경로를 복사하여 cmd에서 그 경로로 진입한다. 
+
+2. qt 설치용 exe파일이 있는 폴더의 경로로 들어간다. 이때, cd, dir 등의 명령어를 잘 모르겠다면, 그냥 파일 관리자로 들어가서 exe파일의 속성을 누른 후, 아래의 사진과 같이 경로를 복사하여 cmd에서 그 경로로 진입한다.
 ![img02](/assets/img/etc/qt_installer_problem/qt_config.png)
 
 3. cmd에 '.\exe파일이름(확장자 포함) --mirror http://ftp.jaist.ac.jp/pub/qtproject/'을 추가해 준다.  
