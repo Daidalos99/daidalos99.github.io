@@ -15,6 +15,9 @@ date: 2023-03-07
 last_modified_at: 2023-03-07
 comments: true
 published: true
+sitemap :
+  changefreq : daily
+  priority : 1.0
 ---
 QT Online Installer 설치시 속도 느림 문제 해결
 ---

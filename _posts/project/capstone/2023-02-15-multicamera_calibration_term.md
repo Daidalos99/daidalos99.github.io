@@ -17,6 +17,9 @@ date: 2023-02-15
 last_modified_at: 2023-03-06
 comments: true
 published: true
+sitemap :
+  changefreq : daily
+  priority : 1.0
 ---
 [용어정리] A Convenient Multi-Camera Self-Calibration for Virtual Environments 
 ---

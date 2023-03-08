@@ -17,6 +17,9 @@ date: 2023-02-15
 last_modified_at: 2023-02-18
 comments: true
 published: true
+sitemap :
+  changefreq : daily
+  priority : 1.0
 ---
 Camera Calibration
 ---
