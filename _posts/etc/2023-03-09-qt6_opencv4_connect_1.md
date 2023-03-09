@@ -1,6 +1,6 @@
 ---
 layout: post
-title: qt6_opencv4_connect
+title: qt6_opencv4_connect_1
 description: >
   Qt6(6.4.2)와 OpenCV4(4.7.0) 연동하기 - 1
 grouped: true
