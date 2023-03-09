@@ -45,8 +45,9 @@ Next를 누르면서 프로젝트 개인설정을 해주고, Kit Selection에서
 이제 프로젝트와 소스파일이 생성되었을텐데 우리는 여기서 '제목.pro' 파일과 'mainwindow.cpp' 파일을 건드려줄 것이다. 
 
 '제목.pro' 파일은 기존의 내용을 아래와 같은 내용으로 덮어씌운다.
+Qt Wiki에 나오는 내용이지만, 내가 설치한 경로와 버전에 맞춰서 코드를 조금씩 수정하였다.
 
-'''
+''' c++
 #-------------------------------------------------
 #
 # Project created by QtCreator 2017-03-05T12:30:06
@@ -101,5 +102,45 @@ LIBS += C:\opencv-build\bin\libopencv_calib3d470.dll
 #        -lopencv_imgproc320     \
 #        -lopencv_features2d320  \
 #        -lopencv_calib3d320
-
 '''
+
+'mainwindow.cpp' 파일은 아래와 같이 대체한다.
+'''
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+
+    // read an image
+    cv::Mat image = cv::imread("C://1.jpg", 1);
+    // create image window named "My Image"
+    cv::namedWindow("My Image");
+    // show the image on window
+    cv::imshow("My Image", image);
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+'''
+
+'C:\1.jpg'라는 이미지를 띄우는 예제 코드이므로, 나는 'C:\'에다가 '1.jpg'를 넣어주었다.
+
+![img4](/assets/img/etc/qt6_opencv4_connect_2/my_image.png)
+
+오... 나다!! 
+
+이로써 Qt6에 OpenCV4 연동하기를 마친다.
+
+이 글을 따라하셔서 잘 되셨다면, 혹은 잘 안되었더라도 댓글 한번씩만 남겨주시면 감사하겠습니다.
+
+
+
