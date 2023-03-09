@@ -47,100 +47,97 @@ Next를 누르면서 프로젝트 개인설정을 해주고, Kit Selection에서
 '제목.pro' 파일은 기존의 내용을 아래와 같은 내용으로 덮어씌운다.
 Qt Wiki에 나오는 내용이지만, 내가 설치한 경로와 버전에 맞춰서 코드를 조금씩 수정하였다.
 
-''' c++
-#-------------------------------------------------
-#
-# Project created by QtCreator 2017-03-05T12:30:06
-#
-#-------------------------------------------------
+``` c++
+    #-------------------------------------------------
+    #
+    # Project created by QtCreator 2017-03-05T12:30:06
+    #
+    #-------------------------------------------------
 
-QT       += core gui
+    QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+    greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = opencvtest
-TEMPLATE = app
+    TARGET = opencvtest
+    TEMPLATE = app
 
-# The following define makes your compiler emit warnings if you use
-# any feature of Qt which as been marked as deprecated (the exact warnings
-# depend on your compiler). Please consult the documentation of the
-# deprecated API in order to know how to port your code away from it.
-DEFINES += QT_DEPRECATED_WARNINGS
+    # The following define makes your compiler emit warnings if you use
+    # any feature of Qt which as been marked as deprecated (the exact warnings
+    # depend on your compiler). Please consult the documentation of the
+    # deprecated API in order to know how to port your code away from it.
+    DEFINES += QT_DEPRECATED_WARNINGS
 
-# You can also make your code fail to compile if you use deprecated APIs.
-# In order to do so, uncomment the following line.
-# You can also select to disable deprecated APIs only up to a certain version of Qt.
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+    # You can also make your code fail to compile if you use deprecated APIs.
+    # In order to do so, uncomment the following line.
+    # You can also select to disable deprecated APIs only up to a certain version of Qt.
+    #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 
-SOURCES += main.cpp\
-        mainwindow.cpp
+    SOURCES += main.cpp\
+            mainwindow.cpp
 
-HEADERS  += mainwindow.h
+    HEADERS  += mainwindow.h
 
-FORMS    += mainwindow.ui
+    FORMS    += mainwindow.ui
 
-INCLUDEPATH += C:\opencv\build\include
+    INCLUDEPATH += C:\opencv\build\include
 
-LIBS += C:\opencv-build\bin\libopencv_core470.dll
-LIBS += C:\opencv-build\bin\libopencv_highgui470.dll
-LIBS += C:\opencv-build\bin\libopencv_imgcodecs470.dll
-LIBS += C:\opencv-build\bin\libopencv_imgproc470.dll
-LIBS += C:\opencv-build\bin\libopencv_features2d470.dll
-LIBS += C:\opencv-build\bin\libopencv_calib3d470.dll
+    LIBS += C:\opencv-build\bin\libopencv_core470.dll
+    LIBS += C:\opencv-build\bin\libopencv_highgui470.dll
+    LIBS += C:\opencv-build\bin\libopencv_imgcodecs470.dll
+    LIBS += C:\opencv-build\bin\libopencv_imgproc470.dll
+    LIBS += C:\opencv-build\bin\libopencv_features2d470.dll
+    LIBS += C:\opencv-build\bin\libopencv_calib3d470.dll
 
-# more correct variant, how set includepath and libs for mingw
-# add system variable: OPENCV_SDK_DIR=D:/opencv/opencv-build/install
-# read http://doc.qt.io/qt-5/qmake-variable-reference.html#libs
+    # more correct variant, how set includepath and libs for mingw
+    # add system variable: OPENCV_SDK_DIR=D:/opencv/opencv-build/install
+    # read http://doc.qt.io/qt-5/qmake-variable-reference.html#libs
 
-#INCLUDEPATH += $$(OPENCV_SDK_DIR)/include
+    #INCLUDEPATH += $$(OPENCV_SDK_DIR)/include
 
-#LIBS += -L$$(OPENCV_SDK_DIR)/x86/mingw/lib \
-#        -lopencv_core320        \
-#        -lopencv_highgui320     \
-#        -lopencv_imgcodecs320   \
-#        -lopencv_imgproc320     \
-#        -lopencv_features2d320  \
-#        -lopencv_calib3d320
-'''
+    #LIBS += -L$$(OPENCV_SDK_DIR)/x86/mingw/lib \
+    #        -lopencv_core320        \
+    #        -lopencv_highgui320     \
+    #        -lopencv_imgcodecs320   \
+    #        -lopencv_imgproc320     \
+    #        -lopencv_features2d320  \
+    #        -lopencv_calib3d320
+```
 
 'mainwindow.cpp' 파일은 아래와 같이 대체한다.
-'''
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+``` c++
+    #include "mainwindow.h"
+    #include "ui_mainwindow.h"
 
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
+    #include <opencv2/core/core.hpp>
+    #include <opencv2/highgui/highgui.hpp>
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
-{
-    ui->setupUi(this);
+    MainWindow::MainWindow(QWidget *parent) :
+        QMainWindow(parent),
+        ui(new Ui::MainWindow)
+    {
+        ui->setupUi(this);
 
-    // read an image
-    cv::Mat image = cv::imread("C://1.jpg", 1);
-    // create image window named "My Image"
-    cv::namedWindow("My Image");
-    // show the image on window
-    cv::imshow("My Image", image);
-}
+        // read an image
+        cv::Mat image = cv::imread("C://1.jpg", 1);
+        // create image window named "My Image"
+        cv::namedWindow("My Image");
+        // show the image on window
+        cv::imshow("My Image", image);
+    }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
-'''
+    MainWindow::~MainWindow()
+    {
+        delete ui;
+    }
+```
 
-'C:\1.jpg'라는 이미지를 띄우는 예제 코드이므로, 나는 'C:\'에다가 '1.jpg'를 넣어주었다.
+'C:\1.jpg'라는 이미지를 띄우는 예제 코드이므로, 나는 'C:\\'에다가 '1.jpg'를 넣어주었다.
 
 ![img4](/assets/img/etc/qt6_opencv4_connect_2/my_image.png)
 
-오... 나다!! 
+오... 된다!! 
 
 이로써 Qt6에 OpenCV4 연동하기를 마친다.
 
 이 글을 따라하셔서 잘 되셨다면, 혹은 잘 안되었더라도 댓글 한번씩만 남겨주시면 감사하겠습니다.
-
-
-
