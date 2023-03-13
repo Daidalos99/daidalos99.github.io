@@ -12,6 +12,9 @@ tags:
   - 카메라기하학
   - 카메라캘리브레이션
   - 멀티카메라
+  - camera calibration
+  - epipolar geometry
+  - self calibration
  
 date: 2023-02-15
 last_modified_at: 2023-02-18
