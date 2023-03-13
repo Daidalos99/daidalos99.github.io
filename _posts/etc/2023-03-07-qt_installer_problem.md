@@ -10,6 +10,9 @@ categories:
 tags:
   - qt creator
   - qt online installer
+  - qt 설치
+  - qt 설치 느림
+  - qt 다운
  
 date: 2023-03-07
 last_modified_at: 2023-03-07

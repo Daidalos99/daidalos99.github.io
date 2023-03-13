@@ -8,12 +8,12 @@ grouped: true
 categories:
   - etc
 tags:
-  - qt creator
-  - qt6
-  - opencv4
-  - qt6.4.2
-  - opencv4.7.0
-  - cmake
+  - qt opencv 연동
+  - qt opencv
+  - qt6 opencv 연동
+  - qt6 opencv
+  - qt creator opencv
+  - qt 크리에이터 opencv
  
 date: 2023-03-09
 last_modified_at: 2023-03-09

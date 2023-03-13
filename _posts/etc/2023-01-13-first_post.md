@@ -9,6 +9,8 @@ categories:
   - etc
 tags:
   - blog
+  - 첫 게시물
+  - 블로그
 date: 2023-01-13
 last_modified_at: 2023-02-15
 comments: true
