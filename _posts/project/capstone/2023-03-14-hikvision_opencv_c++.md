@@ -42,3 +42,4 @@ MV-CA013-20GC 카메라는 GigE(Gigabit Ethernet, 데이터를 1기가비트의 
 이번 프로젝트에서는 Qt Creator 6로 C++을 사용, OpenCV4를 사용하여 카메라 영상을 받아오고자 하였다. Hikvision 카메라 연결에 대한 게시물이 별로 없었으나, [슈크림네 님의 블로그](https://parkeh-dev.tistory.com/2)에 정리가 상당히 잘 되어 있어서, 코드는 이를 상당부분 참고하였다.
 
 이 블로그에서 알 수 있듯이, Hikvision에서는 MVS라는 카메라 사용 프로그램을 배포하는데, 이를 설치할 때, 카메라 사용 메뉴얼까지 같이 설치되고, 이는 매우 상세하고 친절하여 도움이 많이 되었다.
+![img01](/assets/img/project/capstone/hikvision_opencv_c++/mvs.png)
