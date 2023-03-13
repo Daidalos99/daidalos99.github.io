@@ -1,8 +1,9 @@
 ---
 layout: page
 title: Welcome to Daidalos99's Archive! 🎉
-sitemap: false
-noindex: true
+sitemap :
+  changefreq : daily
+  priority : 1.0
 ---
 ## Hello World, I'm Gijin Lee.✌️
 🤖 I’m currently learning Robotics in Kwangwoon University(2018~), South Korea
