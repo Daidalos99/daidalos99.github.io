@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: http://daidalos99.github.io/sitemap.xml
