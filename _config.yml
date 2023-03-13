@@ -159,14 +159,14 @@ defaults:
   - scope:
       path:            assets/
     values:
-      sitemap:         false
+      sitemap:         true
 
   # Don't include licenses in sitemap (feel free to delete)
   - scope:
       path:            licenses/
     values:
       layout:          plain
-      sitemap:         false
+      sitemap:         true
 
   # # You can use the following to enable comments on all posts.
   - scope:
