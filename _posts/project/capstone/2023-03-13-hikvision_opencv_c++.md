@@ -30,7 +30,7 @@ Hikvision 머신비전 카메라 OpenCV/C++ Qt로 연동하기
 이번 캡스톤을 위해 지난번 게시물에서는 Camera Calibration에 대해 다루었다. 
 캡스톤에서 사용할 (머신)비전용 카메라는 Hikvision사에서 제작한 MV-CA013-20GC 모델이다.
 
-![img01](/assets/img/project/capstone/hikvision_opencv_c++/mv_ca013_20gc.jpg){: width="700" height="700"}
+![img01](/assets/img/project/capstone/hikvision_opencv_c++/mv_ca013_20gc.jpg){: width="400" height="200"}
 
 한국 Hikvision 측에서 공식적으로 판매하는 제품은 아니며(본사는 중국 항저우이다), 기존에는 각종 비전 카메라 판매 업체에서 수입을 해서 팔다가, 이제는 다른 제품으로 교체되며 단종이 된 제품 같다. 
 
