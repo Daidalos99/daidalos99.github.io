@@ -120,7 +120,7 @@ favicon: /assets/icons/myblog2.ico
 apple_touch_icon: /assets/icons/myblog1.png
 
 # Sidebar image and theme color of the site.
-accent_image:          /assets/img/profile/kionsijo.jpg
+accent_image:          /assets/img/profile/umeda_skygarden.jpg
 accent_color:          rgb(79,177,186)
 
 # This is used for the `theme-color` meta tag,
