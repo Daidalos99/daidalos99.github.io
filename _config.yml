@@ -120,7 +120,7 @@ favicon: /assets/icons/myblog2.ico
 apple_touch_icon: /assets/icons/myblog1.png
 
 # Sidebar image and theme color of the site.
-accent_image:          /assets/img/profile/churaumi.jpg
+accent_image:          /assets/img/profile/kionsijo.jpg
 accent_color:          rgb(79,177,186)
 
 # This is used for the `theme-color` meta tag,
@@ -207,7 +207,7 @@ google_analytics:      G-85HYDBKWT1
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
-disqus:                daidalos99
+disqus:                https-daidalos99-github-io
 
 # Setting a tinyletter username will enable the newsletter subscription box.
 # PRO version only!
