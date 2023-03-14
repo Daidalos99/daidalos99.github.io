@@ -207,7 +207,7 @@ google_analytics:      G-85HYDBKWT1
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
-disqus:                https-daidalos99-github-io
+disqus:                daidalos99
 
 # Setting a tinyletter username will enable the newsletter subscription box.
 # PRO version only!
