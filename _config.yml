@@ -5,7 +5,7 @@
 #
 title: daidalos99
 email:
-description: daidalos99's code vault.
+description: daidalos99's code vault
 url: # the base hostname & protocol for your site
 keywords: ["blog", "jekyll", "code", "C++", "cpp"]
 
@@ -35,8 +35,8 @@ kramdown:
 owner:
   name: daidalos99
   avatar: leonids-logo.png
-  job: "A jekyll theme"
-  bio: "A simple and awesome blog theme powered by jekyll."
+  job: "developer & engineer"
+  bio: "daidalos99's code vault"
   email:
   disqus-shortname:
   twitter: #username
