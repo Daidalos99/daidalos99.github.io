@@ -5,6 +5,5 @@
 layout: home
 ---
 
-## Hello, World. Welcome to my code vault!
-# AA
+Hello, World. Welcome to my code vault!
 I;m daidalos99!
