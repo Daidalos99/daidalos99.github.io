@@ -1,5 +1,7 @@
 _site
 .sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
+.directory
+Thumbs.db
+_drafts
+.ruby-version
+Gemfile.lock
