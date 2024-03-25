@@ -5,6 +5,5 @@
 layout: home
 ---
 
-# Welcome to my code vault!
-## 2nd Div
+## Hello, World. Welcome to my code vault!
 I;m daidalos99!
