@@ -1,0 +1,287 @@
+---
+layout: post
+title: Hikvision 머신비전 카메라 OpenCV/C++
+description: >
+  Hikvision 머신비전 GigE 카메라 OpenCV/C++ Qt로 연동하기
+grouped: true
+
+categories: 
+  - project
+  - capstone
+tags: 
+  - hikvision
+  - 비전카메라
+  - 머신비전카메라
+  - 산업용카메라
+  - C++연동
+  - QT연동
+  - MV-CA013-20GC
+  - GigE 카메라
+ 
+date: 2023-03-13
+last_modified_at: 2023-03-17
+comments: true
+published: true
+sitemap :
+  changefreq : daily
+  priority : 1.0
+---
+Hikvision 머신비전 카메라 OpenCV/C++ Qt로 연동하기
+---
+이번 캡스톤을 위해 지난번 게시물에서는 Camera Calibration에 대해 다루었다. 
+캡스톤에서 사용할 (머신)비전용 카메라는 Hikvision사에서 제작한 MV-CA013-20GC 모델이다.
+
+![img01](/assets/img/project/capstone/hikvision_opencv_c++/mv_ca013_20gc.jpg){: width="400" height="400"}
+
+한국 Hikvision 측에서 공식적으로 판매하는 제품은 아니며(본사는 중국 항저우이다), 기존에는 각종 비전 카메라 판매 업체에서 수입을 해서 팔다가, 이제는 다른 제품으로 교체되며 단종이 된 제품 같다. 
+
+MV-CA013-20GC 카메라는 GigE(Gigabit Ethernet, 데이터를 1기가비트의 속도로 전송)이라는 통신을 사용한다. 머신 비전용 카메라들을 보면 GigE 방식을 많이 사용하는 것 같다. 이러한 산업용 카메라를 사용 시 주의할 점으로는 
+1. 랜 허브를 잘 고를 것(기가비트 이더넷의 통신 속도를 보장할 것)
+2. 랜선을 잘 보고 살 것(Cat6 이상의 케이블)
+   
+정도가 있는 것 같다. 랜 허브를 사지 않는다면, 비전용 랜카드, 즉 프레임 그래버(Frame Grabber)를 사용할 수 있으며, 이는 전원 자체를 랜선으로 공급하는 PoE(Power over Ethernet) 방식인 듯 하다. 이름 자체가 프레임 그래버인 만큼, 일반적인 기가비트 랜 허브보다 좋을 것으로 생각되지만, 이번 프로젝트에서는 다수의 카메라를 사용하는 만큼 프레임 그래버 카드도 2장이 필요하고, M-ATX 보드로는 이를 감당할 수 없기에, 그냥 기가비트 랜 허브를 사용하기로 하였다. ~~안되면 PC를 갈아야되나~~
+
+이번 프로젝트에서는 Qt Creator 6로 C++을 사용, OpenCV4를 사용하여 카메라 영상을 받아오고자 하였다. Hikvision 카메라 연결에 대한 게시물이 별로 없었으나, [슈크림네 님의 블로그](https://parkeh-dev.tistory.com/2)에 정리가 상당히 잘 되어 있어서, 코드는 이를 상당부분 참고하였다.
+
+이 블로그에서 알 수 있듯이, Hikvision에서는 MVS라는 카메라 사용 프로그램을 배포하는데, 이를 설치할 때, 카메라 사용 메뉴얼까지 같이 설치되고, 이는 매우 상세하고 친절하여 도움이 많이 되었다.
+![img01](/assets/img/project/capstone/hikvision_opencv_c++/mvs.png)
+
+나의 경우 C:/드라이브에 MVS 프로그램을 설치하였기 때문에, 아래와 같은 경로로 접속하여 메뉴얼들을 확인할 수 있다.
+> C:\Program Files (x86)\MVS\Development\Documentations
+
+사실 MVS 폴더 자체에 여러 pdf 파일들이 있지만, 위 [슈크림네 님의 블로그](https://parkeh-dev.tistory.com/2)를 참고하여 코드를 작성하면서, Hikvision에서 만든 라이브러리 및 함수에 대한 설명을 참고할 때, 나는 위 경로 안에 있는 Machine Vision Camera SDK (C)_Developer Guide_V4.0.0_20220422.pdf 파일을 참고하였다. 
+
+카메라를 불러오는 기본 코드는 아래와 같다. 슈크림네 님의 블로그와 내가 다른 것은 슈크님네 님께서는 usb타입의 카메라를 사용한 반면에, 나는 GigE 타입의 카메라를 사용한다는 것이었다. 슈크림네 님의 블로그 코드를 가져와서 실행했을 때, 계속 Grabber가 카메라를 잡지 못하여서 그 이유를 알지 못하고 한참을 헤멨었는데, 위 pdf파일을 참고하며 몇가지 함수를 GigE 버전의 함수로 바꿔주니 작동이 잘 되는 것을 확인할 수 있었다.
+
+처음부터 설명을 하자면, Qt의 경우, 프로젝트를 생성하면, .pro라는 확장자의 프로젝트 파일이 존재한다. 우선 이 파일에, opencv 사용을 위한 코드를 아래와 같 추가해 준다. 이는 앞선 나의 게시물 [Qt6(6.4.2)와 OpenCV4(4.7.0) 연동하기 - 2](https://daidalos99.github.io/etc/2023-03-09-qt6_opencv4_connect_2/) 에서 나오는 코드이기도 하다.
+
+
+```
+INCLUDEPATH += C:\opencv\build\include
+
+LIBS += C:\opencv-build\bin\libopencv_core470.dll
+LIBS += C:\opencv-build\bin\libopencv_highgui470.dll
+LIBS += C:\opencv-build\bin\libopencv_imgcodecs470.dll
+LIBS += C:\opencv-build\bin\libopencv_imgproc470.dll
+LIBS += C:\opencv-build\bin\libopencv_features2d470.dll
+LIBS += C:\opencv-build\bin\libopencv_calib3d470.dll
+```
+
+또한, 이 .pro 파일에 우리는 Hikvision사에서 제공하는 라이브러리 파일을 연결해주어야 한다. 이 역시 MVS 폴더에 있다. .pro 파일의 밑에 아래와 같은 코드를 추가해 준다.
+
+```
+INCLUDEPATH += "C:\Program Files (x86)\MVS\Development\Includes"
+
+LIBS += -L$$PWD/'../../../../../Program Files (x86)/MVS/Development/Libraries/win64/' -lMvCameraControl
+INCLUDEPATH += $$PWD/'../../../../../Program Files (x86)/MVS/Development/Libraries/win64'
+DEPENDPATH += $$PWD/'../../../../../Program Files (x86)/MVS/Development/Libraries/win64'
+```
+
+이제 .pro파일은 준비가 되었다. 
+
+다음으로, main.cpp나 사용할 .cpp파일에 아래와 같은 코드를 입력해준다.
+위에서 말했듯이, 이는 슈크림네 님의 블로그에서 예제 코드를 가져온 후, usb 카메라 관련 명령어만 GigE 카메라 관련 명령어로 바꾸어준 것이라고 보면 된다. 각각의 함수들은 위에서부터 차례로 **카메라 핸들 생성(CreateCamera), 촬영 시작(MV_CC_StartGrabbing), 프레임 데이터 획득(MV_CC_GetOneFrameTimeout), 카메라 중지(MV_CC_StopGrabbing), 카메라 연결 해제(MV_CC_CloseDevice), 리소스 해제(MV_CC_DestroyHandle), 노출값 설정(SetExposureAuto, SetExposure), 프레임 속도 설정(SetFramerate)**의 역할을 한다.
+
+```
+#include <stdio.h>
+#include <string>
+#include <iostream>
+#include "opencv2/highgui.hpp"
+#include "opencv2/imgproc.hpp"
+#include "MvCameraControl.h"
+
+unsigned int        g_nPayloadSize = 1440 * 1080;                                                    // cache size
+unsigned char*      pData = (unsigned char *)malloc(sizeof(unsigned char) * (g_nPayloadSize));        // cache address of picture data
+
+using namespace std;
+using namespace cv;
+
+void* CreateCamera(string cameraname)
+{
+    int        nRet    = MV_OK;                    // status
+    void*    handle    = NULL;                        // camera handle
+
+    // Enum device
+    MV_CC_DEVICE_INFO_LIST stDeviceList;                            // device list
+    memset(&stDeviceList, 0, sizeof(MV_CC_DEVICE_INFO_LIST));        // initialize
+
+    nRet = MV_CC_EnumDevices(MV_GIGE_DEVICE, &stDeviceList);            // get device list
+    if (MV_OK != nRet)
+        printf("Enum Devices fail! nRet [0x%x]\n", nRet);
+
+
+    cout << "Camera name: " << cameraname << endl;
+
+    if (stDeviceList.nDeviceNum > 0)            // exists connected device
+    {
+
+        for (unsigned int i = 0; i < stDeviceList.nDeviceNum; i++) {
+            // get camera model name
+            String modelname((char*)stDeviceList.pDeviceInfo[i]->SpecialInfo.stGigEInfo.chModelName);
+
+            cout << "Model name: " << modelname << endl;
+
+            // compare and create handle
+            if (modelname == cameraname) {
+                nRet = MV_CC_CreateHandle(&handle, stDeviceList.pDeviceInfo[i]);
+                break;
+            }
+        }
+
+
+        // open device
+        nRet = MV_CC_OpenDevice(handle);
+        if (MV_OK != nRet)
+            printf("Open Device fail! nRet [0x%x]\n", nRet);
+
+        return handle;
+    }else
+        return NULL;
+}
+
+void GrabCamera(void* handle)
+{
+    int nRet = MV_OK;
+
+    // Start grab image
+    nRet = MV_CC_StartGrabbing(handle);
+    if (MV_OK != nRet)
+    {
+        printf("Start Grabbing fail! nRet [0x%x]\n", nRet);
+    }
+}
+
+// convert data stream in Mat format
+Mat Convert2Mat(MV_FRAME_OUT_INFO_EX* pstImageInfo, unsigned char* pData)
+{
+    Mat srcImage;
+
+    srcImage = Mat(pstImageInfo->nHeight, pstImageInfo->nWidth, CV_8U, pData);
+    cvtColor(srcImage, srcImage, COLOR_BayerRG2RGB);
+
+    return srcImage;
+}
+
+Mat GetMatFrame(void* handle)
+{
+    MV_FRAME_OUT_INFO_EX stImageInfo = { 0 };
+    memset(&stImageInfo, 0, sizeof(MV_FRAME_OUT_INFO_EX));
+
+    Mat image;
+
+    MV_CC_GetOneFrameTimeout(handle, pData, g_nPayloadSize, &stImageInfo, 1000);
+    image = Convert2Mat(&stImageInfo, pData);
+
+    return image;
+}
+
+void StopCamera(void* handle)
+{
+    int nRet = MV_OK;
+
+    // Stop grab image
+    nRet = MV_CC_StopGrabbing(handle);
+    if (MV_OK != nRet)
+    {
+        printf("Stop Grabbing fail! nRet [0x%x]\n", nRet);
+    }
+}
+
+void CloseCamera(void* handle)
+{
+    int nRet = MV_OK;
+
+    // Close device
+    nRet = MV_CC_CloseDevice(handle);
+    if (MV_OK != nRet)
+    {
+        printf("ClosDevice fail! nRet [0x%x]\n", nRet);
+    }
+
+    // Destroy handle
+    nRet = MV_CC_DestroyHandle(handle);
+    if (MV_OK != nRet)
+    {
+        printf("Destroy Handle fail! nRet [0x%x]\n", nRet);
+    }
+}
+
+void SetExposureAuto(void* handle, bool isauto)
+{
+    int nRet = MV_OK;
+
+    if (isauto) {        // auto mode on
+        nRet = MV_CC_SetEnumValue(handle, "ExposureAuto", 2);
+    }
+    else {                // auto mode off
+        nRet = MV_CC_SetEnumValue(handle, "ExposureAuto", 0);
+    }
+
+    if (MV_OK != nRet)
+    {
+        printf("Set OnExposureAuto fail! nRet [0x%x]\n", nRet);
+    }
+}
+
+void SetExposure(void* handle, float exposure)
+{
+    int nRet = MV_OK;
+
+    nRet = MV_CC_SetFloatValue(handle, "ExposureTime", exposure);
+    if (MV_OK != nRet)
+    {
+        printf("Set Exposure fail! nRet [0x%x]\n", nRet);
+    }
+}
+
+void SetFramerate(void* handle, float framerate)
+{
+    int nRet = MV_OK;
+
+    nRet = MV_CC_SetFloatValue(handle, "AcquisitionFrameRate", framerate);
+    if (MV_OK != nRet)
+    {
+        printf("Set FrameRate fail! nRet [0x%x]\n", nRet);
+    }
+}
+
+int main() {
+
+    void* handle;
+
+    handle = CreateCamera("MV-CA013-20GC");            // Create Handle and Open
+
+    SetExposureAuto(handle, true);                    // set Exposure Auto off
+    //SetExposure(handle, 30000.0f);                    // set Exposure
+    SetFramerate(handle, 90.0f);                    // set Frame rate
+
+    // data type : BayerRG8
+    MV_CC_SetEnumValue(handle, "PixelFormat", 0x01080009);
+
+    GrabCamera(handle);
+
+    Mat img;
+
+    while (true) {
+        img = GetMatFrame(handle);                                // get frame
+        resize(img, img, Size(img.cols, img.rows));        // resize
+
+        imshow("camera", img);
+
+        char c = (char)waitKey(1);
+        if (c == 27) { // ESC
+            StopCamera(handle);                        // stop camera
+            CloseCamera(handle);                    // close camera
+            break;
+        }
+    }
+
+    return 0;
+}
+```
+이제 이를 실행하면 아래와 같이 GigE 카메라에서 영상이 잘 받아와짐을 확인할 수 있다.
+
+![img01](/assets/img/project/capstone/hikvision_opencv_c++/result.png)
+
+
+각각의 함수나 Hikvision 라이브러리 관련 명령어들은 위에서 언급한 pdf 파일을 통해 확인해보길 바란다.
