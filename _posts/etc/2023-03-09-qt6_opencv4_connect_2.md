@@ -1,27 +1,10 @@
 ---
 layout: post
-title: qt6_opencv4_connect_2
-description: >
-  Qt6(6.4.2)와 OpenCV4(4.7.0) 연동하기 - 2
-grouped: true
-
-categories:
-  - etc
-tags:
-  - qt opencv 연동
-  - qt opencv
-  - qt6 opencv 연동
-  - qt6 opencv
-  - qt creator opencv
-  - qt 크리에이터 opencv
- 
-date: 2023-03-09
-last_modified_at: 2023-03-09
+title: Qt6(6.4.2)와 OpenCV4(4.7.0) 연동하기 - 2
+date:   2023-03-09
+excerpt: QT6와 OpenCV4를 연동해 보았다.
+categories: [etc]
 comments: true
-published: true
-sitemap :
-  changefreq : daily
-  priority : 1.0
 ---
 Qt6(6.4.2)와 OpenCV4(4.7.0) 연동하기 - 2
 ---

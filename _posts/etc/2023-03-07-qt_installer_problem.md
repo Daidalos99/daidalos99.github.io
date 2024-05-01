@@ -1,26 +1,10 @@
 ---
 layout: post
-title: qt_installer_problem
-description: >
-  QT Online Installer 설치시 속도 느림 문제 해결
-grouped: true
-
-categories:
-  - etc
-tags:
-  - qt creator
-  - qt online installer
-  - qt 설치
-  - qt 설치 느림
-  - qt 다운
- 
-date: 2023-03-07
-last_modified_at: 2023-03-07
+title: QT Online Installer 설치시 속도 느림 문제 해결
+date:   2023-03-07
+excerpt: QT Online Installer 설치시 속도가 느려지는 문제를 해결하였다.
+categories: [etc]
 comments: true
-published: true
-sitemap :
-  changefreq : daily
-  priority : 1.0
 ---
 QT Online Installer 설치시 속도 느림 문제 해결
 ---

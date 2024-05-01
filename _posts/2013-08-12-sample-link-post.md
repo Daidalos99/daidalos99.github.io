@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: post
 title: "Sample Link Post"
 excerpt: "Try click on the link icon."
@@ -11,4 +11,4 @@ This theme supports **link posts**, made famous by John Gruber. To use, just add
 
 > And this is how a quote looks.
 
-Some [link](http://renyuanz.github.io) can also be shown.
+Some [link](http://renyuanz.github.io) can also be shown. -->
