@@ -2,5 +2,5 @@
 
 label: Ability
 id : cs
-aspects: Motivation, C/C++, Python, Unreal
-percentage: 100, 80, 20, 60
+aspects: Motivation, C/C++, Python, ROS1/2, Unreal
+percentage: 100, 70, 50, 70, 10
