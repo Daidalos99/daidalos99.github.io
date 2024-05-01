@@ -1,25 +1,10 @@
 ---
 layout: post
-title: A Convenient Multi-Camera Self-Calibration for Virtual Environments 
-description: >
-  상기 논문을 읽고 모르는 용어들을 정리하였다.
-grouped: true
-
-categories: 
-  - project
-  - capstone
-tags: 
-  - 논문리뷰
-  - 카메라캘리브레이션
-  - 멀티카메라
- 
-date: 2023-02-15
-last_modified_at: 2023-03-06
+title: [논문용어정리]A Convenient Multi-Camera Self-Calibration for Virtual Environments
+date:   2023-02-15
+excerpt: 논문을 읽고 모르는 용어들을 정리하였다.
+categories: [project-capstone]
 comments: true
-published: true
-sitemap :
-  changefreq : daily
-  priority : 1.0
 ---
 [용어정리] A Convenient Multi-Camera Self-Calibration for Virtual Environments 
 ---

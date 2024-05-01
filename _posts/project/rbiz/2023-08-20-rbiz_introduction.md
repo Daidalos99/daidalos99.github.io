@@ -1,24 +1,10 @@
 ---
 layout: post
 title: R-Biz Introduction
-description: >
-  R-Biz 대회에 대한 간단한 소개
-grouped: true
-
-categories: 
-  - project
-  - rbiz
-tags: 
-  - rbiz
-  - 대회
- 
-date: 2023-08-20
-last_modified_at: 2023-08-20
+date:   2023-08-20
+excerpt: R-Biz 대회에 대한 간단한 소개
+categories: [project-rbiz]
 comments: true
-published: true
-sitemap :
-  changefreq : daily
-  priority : 1.0
 ---
 R-Biz Introduction
 ---

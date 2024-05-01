@@ -1,30 +1,10 @@
 ---
 layout: post
 title: Hikvision 머신비전 카메라 OpenCV/C++
-description: >
-  Hikvision 머신비전 GigE 카메라 OpenCV/C++ Qt로 연동하기
-grouped: true
-
-categories: 
-  - project
-  - capstone
-tags: 
-  - hikvision
-  - 비전카메라
-  - 머신비전카메라
-  - 산업용카메라
-  - C++연동
-  - QT연동
-  - MV-CA013-20GC
-  - GigE 카메라
- 
-date: 2023-03-13
-last_modified_at: 2023-03-17
+date:   2023-03-13
+excerpt: Hikvision 머신비전 GigE 카메라 OpenCV/C++ Qt로 연동하기
+categories: [project-capstone]
 comments: true
-published: true
-sitemap :
-  changefreq : daily
-  priority : 1.0
 ---
 Hikvision 머신비전 카메라 OpenCV/C++ Qt로 연동하기
 ---
