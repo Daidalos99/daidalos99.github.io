@@ -5,7 +5,7 @@
   top: 400px;
   z-index: 233;
   width: 100%;
-  padding: 20px 20px 0;
+  padding: 10px 10px 0;
   -webkit-transform: translate3d(0,0,1px);
   transform: translate3d(0,0,1px);
   @include media-query($small-screen) {
@@ -63,8 +63,7 @@ section.post {
 .post-meta {
   font-size: 13px;
   font-weight: bold;
-  padding-bottom: 5px;
-
+  
 	.post-date {
 		color: $secondary;
 	}
