@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Hikvision 머신비전 카메라 OpenCV/C++ Qt로 연동하기이번 캡스톤을 위해 지난번 게시물에서는 Camera Calibration에 대해 다루었다. 캡스톤에서 사용할 (머신)비전용 카메라는 Hikvision사에서 제작한 MV-CA013-20GC 모델이다.한국 Hikvis...">
+  <meta name="keywords" content="blog, jekyll, code, C++, cpp, and simulation">
+  <meta name="author" content="Hikvision 머신비전 카메라 OpenCV/C++ | daidalos99">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f5">
+
+  <!-- Twitter Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hikvision 머신비전 카메라 OpenCV/C++ | daidalos99">
+  <meta name="twitter:description" content="Hikvision 머신비전 카메라 OpenCV/C++ Qt로 연동하기이번 캡스톤을 위해 지난번 게시물에서는 Camera Calibration에 대해 다루었다. 캡스톤에서 사용할 (머신)비전용 카메라는 Hikvision사에서 제작한 MV-CA013-20GC 모델이다.한국 Hikvis...">
+  
+    <meta property="twitter:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="http://localhost:4000/articles/2023-03/hikvision_opencv_c++">
+  <meta property="og:title" content="Hikvision 머신비전 카메라 OpenCV/C++ | daidalos99">
+  <meta property="og:description" content="Hikvision 머신비전 카메라 OpenCV/C++ Qt로 연동하기이번 캡스톤을 위해 지난번 게시물에서는 Camera Calibration에 대해 다루었다. 캡스톤에서 사용할 (머신)비전용 카메라는 Hikvision사에서 제작한 MV-CA013-20GC 모델이다.한국 Hikvis...">
+  
+    <meta property="og:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+  <title>Hikvision 머신비전 카메라 OpenCV/C++ | daidalos99</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+
+  <link rel="canonical" href="http://localhost:4000/articles/2023-03/hikvision_opencv_c++">
+  <link rel="alternate" type="application/rss+xml" title="daidalos99" href="http://localhost:4000/feed.xml" />
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <a href="http://localhost:4000/">
+    <img src="http://localhost:4000/img/leonids-logo.png" alt="" class="avatar">
+  </a>
+  
+  <a href="http://localhost:4000/" class="author_name">daidalos99</a>
+  <span class="author_job">developer & engineer</span>
+  <span class="author_bio mbm">daidalos99's code vault</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="http://localhost:4000/">home</a>
+      </li>
+         
+      <li class="nav-item">
+        <a href="http://localhost:4000/archive/">Archive</a>
+      </li>
+            
+      <li class="nav-item">
+        <a href="http://localhost:4000/categories/">Categories</a>
+      </li>
+          
+      <li class="nav-item">
+        <a href="http://localhost:4000/resume/">Resume</a>
+      </li>
+        
+      <li class="nav-item">
+        <a href="http://localhost:4000/tags/">Tags</a>
+      </li>
+         
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+      <li>
+      <script>gen_mail_to_link('daidalos0430@gmail.com', 'Hello from website');</script>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="http://github.com/Daidalos99" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        <a class="btn" href= "http://localhost:4000/" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="Hikvision 머신비전 카메라 OpenCV/C++">Hikvision 머신비전 카메라 OpenCV/C++</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        13 MAR 2023
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    5 mins read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <h2 id="hikvision-머신비전-카메라-opencvc-qt로-연동하기">Hikvision 머신비전 카메라 OpenCV/C++ Qt로 연동하기</h2>
+<p>이번 캡스톤을 위해 지난번 게시물에서는 Camera Calibration에 대해 다루었다. 
+캡스톤에서 사용할 (머신)비전용 카메라는 Hikvision사에서 제작한 MV-CA013-20GC 모델이다.</p>
+
+<p><img src="/assets/img/project/capstone/hikvision_opencv_c++/mv_ca013_20gc.jpg" alt="img01" width="400" height="400" /></p>
+
+<p>한국 Hikvision 측에서 공식적으로 판매하는 제품은 아니며(본사는 중국 항저우이다), 기존에는 각종 비전 카메라 판매 업체에서 수입을 해서 팔다가, 이제는 다른 제품으로 교체되며 단종이 된 제품 같다.</p>
+
+<p>MV-CA013-20GC 카메라는 GigE(Gigabit Ethernet, 데이터를 1기가비트의 속도로 전송)이라는 통신을 사용한다. 머신 비전용 카메라들을 보면 GigE 방식을 많이 사용하는 것 같다. 이러한 산업용 카메라를 사용 시 주의할 점으로는</p>
+<ol>
+  <li>랜 허브를 잘 고를 것(기가비트 이더넷의 통신 속도를 보장할 것)</li>
+  <li>랜선을 잘 보고 살 것(Cat6 이상의 케이블)</li>
+</ol>
+
+<p>정도가 있는 것 같다. 랜 허브를 사지 않는다면, 비전용 랜카드, 즉 프레임 그래버(Frame Grabber)를 사용할 수 있으며, 이는 전원 자체를 랜선으로 공급하는 PoE(Power over Ethernet) 방식인 듯 하다. 이름 자체가 프레임 그래버인 만큼, 일반적인 기가비트 랜 허브보다 좋을 것으로 생각되지만, 이번 프로젝트에서는 다수의 카메라를 사용하는 만큼 프레임 그래버 카드도 2장이 필요하고, M-ATX 보드로는 이를 감당할 수 없기에, 그냥 기가비트 랜 허브를 사용하기로 하였다. <del>안되면 PC를 갈아야되나</del></p>
+
+<p>이번 프로젝트에서는 Qt Creator 6로 C++을 사용, OpenCV4를 사용하여 카메라 영상을 받아오고자 하였다. Hikvision 카메라 연결에 대한 게시물이 별로 없었으나, <a href="https://parkeh-dev.tistory.com/2">슈크림네 님의 블로그</a>에 정리가 상당히 잘 되어 있어서, 코드는 이를 상당부분 참고하였다.</p>
+
+<p>이 블로그에서 알 수 있듯이, Hikvision에서는 MVS라는 카메라 사용 프로그램을 배포하는데, 이를 설치할 때, 카메라 사용 메뉴얼까지 같이 설치되고, 이는 매우 상세하고 친절하여 도움이 많이 되었다.
+<img src="/assets/img/project/capstone/hikvision_opencv_c++/mvs.png" alt="img01" /></p>
+
+<p>나의 경우 C:/드라이브에 MVS 프로그램을 설치하였기 때문에, 아래와 같은 경로로 접속하여 메뉴얼들을 확인할 수 있다.</p>
+<blockquote>
+  <p>C:\Program Files (x86)\MVS\Development\Documentations</p>
+</blockquote>
+
+<p>사실 MVS 폴더 자체에 여러 pdf 파일들이 있지만, 위 <a href="https://parkeh-dev.tistory.com/2">슈크림네 님의 블로그</a>를 참고하여 코드를 작성하면서, Hikvision에서 만든 라이브러리 및 함수에 대한 설명을 참고할 때, 나는 위 경로 안에 있는 Machine Vision Camera SDK (C)_Developer Guide_V4.0.0_20220422.pdf 파일을 참고하였다.</p>
+
+<p>카메라를 불러오는 기본 코드는 아래와 같다. 슈크림네 님의 블로그와 내가 다른 것은 슈크님네 님께서는 usb타입의 카메라를 사용한 반면에, 나는 GigE 타입의 카메라를 사용한다는 것이었다. 슈크림네 님의 블로그 코드를 가져와서 실행했을 때, 계속 Grabber가 카메라를 잡지 못하여서 그 이유를 알지 못하고 한참을 헤멨었는데, 위 pdf파일을 참고하며 몇가지 함수를 GigE 버전의 함수로 바꿔주니 작동이 잘 되는 것을 확인할 수 있었다.</p>
+
+<p>처음부터 설명을 하자면, Qt의 경우, 프로젝트를 생성하면, .pro라는 확장자의 프로젝트 파일이 존재한다. 우선 이 파일에, opencv 사용을 위한 코드를 아래와 같 추가해 준다. 이는 앞선 나의 게시물 <a href="https://daidalos99.github.io/etc/2023-03-09-qt6_opencv4_connect_2/">Qt6(6.4.2)와 OpenCV4(4.7.0) 연동하기 - 2</a> 에서 나오는 코드이기도 하다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INCLUDEPATH += C:\opencv\build\include
+
+LIBS += C:\opencv-build\bin\libopencv_core470.dll
+LIBS += C:\opencv-build\bin\libopencv_highgui470.dll
+LIBS += C:\opencv-build\bin\libopencv_imgcodecs470.dll
+LIBS += C:\opencv-build\bin\libopencv_imgproc470.dll
+LIBS += C:\opencv-build\bin\libopencv_features2d470.dll
+LIBS += C:\opencv-build\bin\libopencv_calib3d470.dll
+</code></pre></div></div>
+
+<p>또한, 이 .pro 파일에 우리는 Hikvision사에서 제공하는 라이브러리 파일을 연결해주어야 한다. 이 역시 MVS 폴더에 있다. .pro 파일의 밑에 아래와 같은 코드를 추가해 준다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INCLUDEPATH += "C:\Program Files (x86)\MVS\Development\Includes"
+
+LIBS += -L$$PWD/'../../../../../Program Files (x86)/MVS/Development/Libraries/win64/' -lMvCameraControl
+INCLUDEPATH += $$PWD/'../../../../../Program Files (x86)/MVS/Development/Libraries/win64'
+DEPENDPATH += $$PWD/'../../../../../Program Files (x86)/MVS/Development/Libraries/win64'
+</code></pre></div></div>
+
+<p>이제 .pro파일은 준비가 되었다.</p>
+
+<p>다음으로, main.cpp나 사용할 .cpp파일에 아래와 같은 코드를 입력해준다.
+위에서 말했듯이, 이는 슈크림네 님의 블로그에서 예제 코드를 가져온 후, usb 카메라 관련 명령어만 GigE 카메라 관련 명령어로 바꾸어준 것이라고 보면 된다. 각각의 함수들은 위에서부터 차례로 <strong>카메라 핸들 생성(CreateCamera), 촬영 시작(MV_CC_StartGrabbing), 프레임 데이터 획득(MV_CC_GetOneFrameTimeout), 카메라 중지(MV_CC_StopGrabbing), 카메라 연결 해제(MV_CC_CloseDevice), 리소스 해제(MV_CC_DestroyHandle), 노출값 설정(SetExposureAuto, SetExposure), 프레임 속도 설정(SetFramerate)</strong>의 역할을 한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;stdio.h&gt;
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+#include "opencv2/highgui.hpp"
+#include "opencv2/imgproc.hpp"
+#include "MvCameraControl.h"
+
+unsigned int        g_nPayloadSize = 1440 * 1080;                                                    // cache size
+unsigned char*      pData = (unsigned char *)malloc(sizeof(unsigned char) * (g_nPayloadSize));        // cache address of picture data
+
+using namespace std;
+using namespace cv;
+
+void* CreateCamera(string cameraname)
+{
+    int        nRet    = MV_OK;                    // status
+    void*    handle    = NULL;                        // camera handle
+
+    // Enum device
+    MV_CC_DEVICE_INFO_LIST stDeviceList;                            // device list
+    memset(&amp;stDeviceList, 0, sizeof(MV_CC_DEVICE_INFO_LIST));        // initialize
+
+    nRet = MV_CC_EnumDevices(MV_GIGE_DEVICE, &amp;stDeviceList);            // get device list
+    if (MV_OK != nRet)
+        printf("Enum Devices fail! nRet [0x%x]\n", nRet);
+
+
+    cout &lt;&lt; "Camera name: " &lt;&lt; cameraname &lt;&lt; endl;
+
+    if (stDeviceList.nDeviceNum &gt; 0)            // exists connected device
+    {
+
+        for (unsigned int i = 0; i &lt; stDeviceList.nDeviceNum; i++) {
+            // get camera model name
+            String modelname((char*)stDeviceList.pDeviceInfo[i]-&gt;SpecialInfo.stGigEInfo.chModelName);
+
+            cout &lt;&lt; "Model name: " &lt;&lt; modelname &lt;&lt; endl;
+
+            // compare and create handle
+            if (modelname == cameraname) {
+                nRet = MV_CC_CreateHandle(&amp;handle, stDeviceList.pDeviceInfo[i]);
+                break;
+            }
+        }
+
+
+        // open device
+        nRet = MV_CC_OpenDevice(handle);
+        if (MV_OK != nRet)
+            printf("Open Device fail! nRet [0x%x]\n", nRet);
+
+        return handle;
+    }else
+        return NULL;
+}
+
+void GrabCamera(void* handle)
+{
+    int nRet = MV_OK;
+
+    // Start grab image
+    nRet = MV_CC_StartGrabbing(handle);
+    if (MV_OK != nRet)
+    {
+        printf("Start Grabbing fail! nRet [0x%x]\n", nRet);
+    }
+}
+
+// convert data stream in Mat format
+Mat Convert2Mat(MV_FRAME_OUT_INFO_EX* pstImageInfo, unsigned char* pData)
+{
+    Mat srcImage;
+
+    srcImage = Mat(pstImageInfo-&gt;nHeight, pstImageInfo-&gt;nWidth, CV_8U, pData);
+    cvtColor(srcImage, srcImage, COLOR_BayerRG2RGB);
+
+    return srcImage;
+}
+
+Mat GetMatFrame(void* handle)
+{
+    MV_FRAME_OUT_INFO_EX stImageInfo = { 0 };
+    memset(&amp;stImageInfo, 0, sizeof(MV_FRAME_OUT_INFO_EX));
+
+    Mat image;
+
+    MV_CC_GetOneFrameTimeout(handle, pData, g_nPayloadSize, &amp;stImageInfo, 1000);
+    image = Convert2Mat(&amp;stImageInfo, pData);
+
+    return image;
+}
+
+void StopCamera(void* handle)
+{
+    int nRet = MV_OK;
+
+    // Stop grab image
+    nRet = MV_CC_StopGrabbing(handle);
+    if (MV_OK != nRet)
+    {
+        printf("Stop Grabbing fail! nRet [0x%x]\n", nRet);
+    }
+}
+
+void CloseCamera(void* handle)
+{
+    int nRet = MV_OK;
+
+    // Close device
+    nRet = MV_CC_CloseDevice(handle);
+    if (MV_OK != nRet)
+    {
+        printf("ClosDevice fail! nRet [0x%x]\n", nRet);
+    }
+
+    // Destroy handle
+    nRet = MV_CC_DestroyHandle(handle);
+    if (MV_OK != nRet)
+    {
+        printf("Destroy Handle fail! nRet [0x%x]\n", nRet);
+    }
+}
+
+void SetExposureAuto(void* handle, bool isauto)
+{
+    int nRet = MV_OK;
+
+    if (isauto) {        // auto mode on
+        nRet = MV_CC_SetEnumValue(handle, "ExposureAuto", 2);
+    }
+    else {                // auto mode off
+        nRet = MV_CC_SetEnumValue(handle, "ExposureAuto", 0);
+    }
+
+    if (MV_OK != nRet)
+    {
+        printf("Set OnExposureAuto fail! nRet [0x%x]\n", nRet);
+    }
+}
+
+void SetExposure(void* handle, float exposure)
+{
+    int nRet = MV_OK;
+
+    nRet = MV_CC_SetFloatValue(handle, "ExposureTime", exposure);
+    if (MV_OK != nRet)
+    {
+        printf("Set Exposure fail! nRet [0x%x]\n", nRet);
+    }
+}
+
+void SetFramerate(void* handle, float framerate)
+{
+    int nRet = MV_OK;
+
+    nRet = MV_CC_SetFloatValue(handle, "AcquisitionFrameRate", framerate);
+    if (MV_OK != nRet)
+    {
+        printf("Set FrameRate fail! nRet [0x%x]\n", nRet);
+    }
+}
+
+int main() {
+
+    void* handle;
+
+    handle = CreateCamera("MV-CA013-20GC");            // Create Handle and Open
+
+    SetExposureAuto(handle, true);                    // set Exposure Auto off
+    //SetExposure(handle, 30000.0f);                    // set Exposure
+    SetFramerate(handle, 90.0f);                    // set Frame rate
+
+    // data type : BayerRG8
+    MV_CC_SetEnumValue(handle, "PixelFormat", 0x01080009);
+
+    GrabCamera(handle);
+
+    Mat img;
+
+    while (true) {
+        img = GetMatFrame(handle);                                // get frame
+        resize(img, img, Size(img.cols, img.rows));        // resize
+
+        imshow("camera", img);
+
+        char c = (char)waitKey(1);
+        if (c == 27) { // ESC
+            StopCamera(handle);                        // stop camera
+            CloseCamera(handle);                    // close camera
+            break;
+        }
+    }
+
+    return 0;
+}
+</code></pre></div></div>
+<p>이제 이를 실행하면 아래와 같이 GigE 카메라에서 영상이 잘 받아와짐을 확인할 수 있다.</p>
+
+<p><img src="/assets/img/project/capstone/hikvision_opencv_c++/result.png" alt="img01" /></p>
+
+<p>각각의 함수나 Hikvision 라이브러리 관련 명령어들은 위에서 언급한 pdf 파일을 통해 확인해보길 바란다.</p>
+
+  </article>
+</div>
+
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/articles/2023-03/hikvision_opencv_c++" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/articles/2023-03/hikvision_opencv_c++" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://localhost:4000/articles/2023-03/hikvision_opencv_c++" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u=http://localhost:4000/articles/2023-03/hikvision_opencv_c++" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url=http://localhost:4000/articles/2023-03/hikvision_opencv_c++" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'https-daidalos99-github-io';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+        <footer>
+  &copy; 2024 daidalos99. Powered by <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://localhost:4000/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/main.js"></script>
+
+
+</body>
+</html>

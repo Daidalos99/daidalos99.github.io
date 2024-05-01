@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="move_base 패키지와 파라미터 공부rbiz 푸드 딜리버리 챌린지를 준비하면서 오랜만에 move_base를 써보게 되었는데, 오랜만에 보니 헷갈리기도 헷갈리고 뭐가 뭔지 모르겠는 느낌이었다. 그래서 공부한 내용을 정리하기로 했다.혹시 몰라 적어두는 나의 SLAM &amp; Na...">
+  <meta name="keywords" content="blog, jekyll, code, C++, cpp, and simulation">
+  <meta name="author" content="move_base | daidalos99">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f5">
+
+  <!-- Twitter Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="move_base | daidalos99">
+  <meta name="twitter:description" content="move_base 패키지와 파라미터 공부rbiz 푸드 딜리버리 챌린지를 준비하면서 오랜만에 move_base를 써보게 되었는데, 오랜만에 보니 헷갈리기도 헷갈리고 뭐가 뭔지 모르겠는 느낌이었다. 그래서 공부한 내용을 정리하기로 했다.혹시 몰라 적어두는 나의 SLAM &amp;amp; Na...">
+  
+    <meta property="twitter:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="http://localhost:4000/articles/2023-08/move_base">
+  <meta property="og:title" content="move_base | daidalos99">
+  <meta property="og:description" content="move_base 패키지와 파라미터 공부rbiz 푸드 딜리버리 챌린지를 준비하면서 오랜만에 move_base를 써보게 되었는데, 오랜만에 보니 헷갈리기도 헷갈리고 뭐가 뭔지 모르겠는 느낌이었다. 그래서 공부한 내용을 정리하기로 했다.혹시 몰라 적어두는 나의 SLAM &amp;amp; Na...">
+  
+    <meta property="og:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+  <title>move_base | daidalos99</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+
+  <link rel="canonical" href="http://localhost:4000/articles/2023-08/move_base">
+  <link rel="alternate" type="application/rss+xml" title="daidalos99" href="http://localhost:4000/feed.xml" />
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <a href="http://localhost:4000/">
+    <img src="http://localhost:4000/img/leonids-logo.png" alt="" class="avatar">
+  </a>
+  
+  <a href="http://localhost:4000/" class="author_name">daidalos99</a>
+  <span class="author_job">developer & engineer</span>
+  <span class="author_bio mbm">daidalos99's code vault</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="http://localhost:4000/">home</a>
+      </li>
+         
+      <li class="nav-item">
+        <a href="http://localhost:4000/archive/">Archive</a>
+      </li>
+            
+      <li class="nav-item">
+        <a href="http://localhost:4000/categories/">Categories</a>
+      </li>
+          
+      <li class="nav-item">
+        <a href="http://localhost:4000/resume/">Resume</a>
+      </li>
+        
+      <li class="nav-item">
+        <a href="http://localhost:4000/tags/">Tags</a>
+      </li>
+         
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+      <li>
+      <script>gen_mail_to_link('daidalos0430@gmail.com', 'Hello from website');</script>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="http://github.com/Daidalos99" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        <a class="btn" href= "http://localhost:4000/" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="move_base">move_base</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        28 AUG 2023
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    9 mins read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <h2 id="move_base-패키지와-파라미터-공부">move_base 패키지와 파라미터 공부</h2>
+
+<p>rbiz 푸드 딜리버리 챌린지를 준비하면서 오랜만에 move_base를 써보게 되었는데, 오랜만에 보니 헷갈리기도 헷갈리고 뭐가 뭔지 모르겠는 느낌이었다. 그래서 공부한 내용을 정리하기로 했다.</p>
+
+<p>혹시 몰라 적어두는 나의 SLAM &amp; Navigation 실행환경은 아래와 같다.</p>
+<ul>
+  <li>Ubuntu 20.04.6 LTS Focal Fossa</li>
+  <li>ROS Noetic</li>
+</ul>
+
+<h2 id="move_base란">move_base란?</h2>
+<p><a href="http://wiki.ros.org/move_base">move_base</a> 노드는 (모바일)로봇의 navigation stack과 상호작용하기 위한 ROS 인터페이스(토픽, 서비스, 액션, 파라미터)를 제공한다. 아래 그림(화이트 테마를 키고 보자.)은 일반적인 모바일 로봇의 navigation stack 설정을 나타낸 그림이고, 그 중에서도 가운데 네모가 move_base 노드의 구조를 나타낸다.</p>
+
+<p><img src="/assets/img/project/rbiz/move_base/move_base.png" alt="move_base" /></p>
+
+<p>파란색 부분은 로봇(플랫폼)에 따라 달라질 수 있는 부분이고, 회색 부분은 부가적이지만, 모든 시스템을 위해 제공된다. move_base 노드는 이러한 시스템 및 부가적으로 발행되는 정보들과 맞물려서, <strong>로봇이 목적 자세(goal pose)를 달성할수 있도록</strong> 한다.</p>
+
+<p>아무튼, move_base 부분만 보면</p>
+<ul>
+  <li>global_planner</li>
+  <li>global_costmap</li>
+  <li>local_planner</li>
+  <li>local_costmap</li>
+  <li>recovery_behaviors</li>
+</ul>
+
+<p>로 구성되어 있다.</p>
+
+<p>우선 <strong>Costmap</strong>이란 것은 grid cell로 구성되어 있는 지도(occupancy grid map)에서 각 셀들이 장애물/지형의 특성 등을 반영한 cost 값을 가지는 것이다.</p>
+
+<h2 id="recovery-behavior">Recovery Behavior</h2>
+<p>move_base의 Recovery Behavior 시행 순서는 아래 그림과 같다.</p>
+
+<p><img src="/assets/img/project/rbiz/move_base/expected_behaviors.png" alt="expected_behavior" /></p>
+<ol>
+  <li>사용자가 설정한 영역외의 장애물들을 로봇의 지도에서 제거한다.</li>
+  <li>가능하다면, 로봇은 영역을 초기화하기 위해 제자리 회전 수행한다.</li>
+  <li>위 과정이 실패하면, 로봇은 모든 장애물들을 제자리 회전이 가능한 사각형 밖으로 제거해버린다. 그리고 또다른 제자리회전을 수행한다.</li>
+  <li>만약 죄다 실패한다면, 목표가 도달불가능한지 고려한 후, 그에 따른 보류 메세지를 출력한다.</li>
+</ol>
+
+<h2 id="파라미터-파일yaml-설정">파라미터 파일(yaml) 설정</h2>
+<p>move_base의 launch파일을 보면, rosparam으로 여러 yaml파일을 설정해준다. 대략적인 파일은 아래와 같다.</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>move_base_only.launch  
+
+<span class="nt">&lt;launch&gt;</span>
+  <span class="nt">&lt;node</span> <span class="na">pkg=</span><span class="s">"move_base"</span> <span class="na">type=</span><span class="s">"move_base"</span> <span class="na">respawn=</span><span class="s">"false"</span> <span class="na">name=</span><span class="s">"move_base"</span> <span class="na">output=</span><span class="s">"screen"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;rosparam</span> <span class="na">file=</span><span class="s">"$(find pkg)/params/costmap_common_params.yaml"</span> <span class="na">command=</span><span class="s">"load"</span> <span class="na">ns=</span><span class="s">"global_costmap"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;rosparam</span> <span class="na">file=</span><span class="s">"$(find pkg)/params/costmap_common_params.yaml"</span> <span class="na">command=</span><span class="s">"load"</span> <span class="na">ns=</span><span class="s">"local_costmap"</span><span class="nt">/&gt;</span>
+    
+    <span class="nt">&lt;rosparam</span> <span class="na">file=</span><span class="s">"$(find pkg)/params/map_nav_params/local_costmap_params.yaml"</span> <span class="na">command=</span><span class="s">"load"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;rosparam</span> <span class="na">file=</span><span class="s">"$(find pkg)/params/map_nav_params/global_costmap_params.yaml"</span> <span class="na">command=</span><span class="s">"load"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;rosparam</span> <span class="na">file=</span><span class="s">"$(find pkg)/params/base_local_planner_params.yaml"</span> <span class="na">command=</span><span class="s">"load"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;rosparam</span> <span class="na">file=</span><span class="s">"$(find pkg)/params/move_base_params.yaml"</span> <span class="na">command=</span><span class="s">"load"</span><span class="nt">/&gt;</span>
+    
+    <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">"base_global_planner"</span> <span class="na">type=</span><span class="s">"string"</span> <span class="na">value=</span><span class="s">"navfn/NavfnROS"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">"base_local_planner"</span> <span class="na">value=</span><span class="s">"base_local_planner/TrajectoryPlannerROS"</span><span class="nt">/&gt;</span>	
+    <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">"clearing_rotation_allowed"</span> <span class="na">value=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!--remap from="odom" to="/odometry/filtered" /--&gt;</span>
+  <span class="nt">&lt;/node&gt;</span>
+<span class="nt">&lt;/launch&gt;</span>  
+
+위 경로는 본인의 경로에 맞춘 것이므로, 각 yaml파일들의 경로는 사람마다 다를 수 있음.
+</code></pre></div></div>
+
+<p>rosparam으로 선언된 파라미터들을 보면, 총 5개의 launch파일들을 태그하고 있다.</p>
+<ul>
+  <li>costmap_common_params.yaml</li>
+  <li>local_cost_params.yaml</li>
+  <li>global_cost_params.yaml</li>
+  <li>base_local_planner.yaml</li>
+  <li>move_base_params.yaml</li>
+</ul>
+
+<h3 id="costmap-configuration">Costmap Configuration</h3>
+<p>Navigation stack에서는 장애물 정보가 담긴 2개의 costmap을 사용한다. 하나는 global planning(전체 환경에서의 계획)에 사용되는 <strong>global costmap</strong>, 다른 하나는 local planning과 장애물 회피에 사용되는 <strong>local costmap</strong> 이다.</p>
+
+<p>이 두 costmap에 관한 설정을 해줘야 할텐데, global, local costmap이 공통으로 적용되는 설정은 <strong>costmap_common_params.yaml</strong>에, 각각의 설정은 <strong>local_cost_params.yaml</strong>, <strong>global_cost_params.yaml</strong>에 담겨있다. 여기서는 중요한, 그리고 내가 사용한 파라미터 위주로 간단히 훑을 것이다.</p>
+
+<p>우선 <strong>costmap_common_params.yaml</strong>부터 보자.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#---standard pioneer footprint---</span>
+<span class="c1">#---(in meters)---</span>
+
+<span class="na">footprint</span><span class="pi">:</span> <span class="pi">[[</span><span class="nv">-0.3</span><span class="pi">,</span> <span class="nv">-0.25</span><span class="pi">],</span> <span class="pi">[</span><span class="nv">-0.3</span><span class="pi">,</span> <span class="nv">0.25</span><span class="pi">],</span> <span class="pi">[</span><span class="nv">0.3</span><span class="pi">,</span> <span class="nv">0.25</span><span class="pi">],</span> <span class="pi">[</span><span class="nv">0.3</span><span class="pi">,</span><span class="nv">-0.25</span><span class="pi">]]</span>
+<span class="na">footprint_padding</span><span class="pi">:</span> <span class="m">0.03</span>
+
+<span class="c1"># Acceptable errors in the robot's sensor data or in areas related to positional transformation</span>
+<span class="na">transform_tolerance</span><span class="pi">:</span> <span class="m">0.1</span>
+<span class="na">map_type</span><span class="pi">:</span> <span class="s">costmap</span>
+
+<span class="na">always_send_full_costmap</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="na">obstacle_layer</span><span class="pi">:</span>
+ <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+ <span class="na">obstacle_range</span><span class="pi">:</span> <span class="m">2.0</span>
+ <span class="na">raytrace_range</span><span class="pi">:</span> <span class="m">4.0</span>
+ <span class="na">inflation_radius</span><span class="pi">:</span> <span class="m">0.2</span>
+ <span class="na">track_unknown_space</span><span class="pi">:</span> <span class="no">true</span>
+ <span class="na">combination_method</span><span class="pi">:</span> <span class="m">1</span>
+ <span class="na">observation_sources</span><span class="pi">:</span> <span class="s">scan</span>
+ <span class="na">scan</span><span class="pi">:</span> <span class="pi">{</span><span class="nv">sensor_frame</span><span class="pi">:</span> <span class="nv">base_link</span><span class="pi">,</span> <span class="nv">data_type</span><span class="pi">:</span> <span class="nv">LaserScan</span><span class="pi">,</span> <span class="nv">topic</span><span class="pi">:</span> <span class="nv">/scan_filtered</span><span class="pi">,</span> <span class="nv">marking</span><span class="pi">:</span> <span class="nv">true</span><span class="pi">,</span> <span class="nv">clearing</span><span class="pi">:</span> <span class="nv">true</span><span class="pi">}</span>
+
+<span class="na">inflation_layer</span><span class="pi">:</span>
+  <span class="na">enabled</span><span class="pi">:</span>              <span class="no">true</span>
+  <span class="na">cost_scaling_factor</span><span class="pi">:</span>  <span class="m">10.0</span>  <span class="c1"># exponential rate at which the obstacle cost drops off (default: 10)</span>
+  <span class="na">inflation_radius</span><span class="pi">:</span>     <span class="m">0.3</span>  <span class="c1"># 0.5, max. distance from an obstacle at which costs are incurred for planning paths.</span>
+
+<span class="na">static_layer</span><span class="pi">:</span>
+  <span class="na">enabled</span><span class="pi">:</span>              <span class="no">true</span>
+  <span class="na">map_topic</span><span class="pi">:</span>            <span class="s2">"</span><span class="s">/map"</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>footprint: 로봇의 바운더리 설정, 점을 하나씩 추가 할때마다, 로봇의 바운더리 다각형의 꼭짓점 수가 늘어남</li>
+  <li>footprint_padding: footprint의 여유공간, 로봇이 충돌하지 않기 위해 여유공간(패딩)을 주는 것</li>
+  <li>transform_tolerance: 로봇의 위치변환(tf)에 대한 허용 오차, 로봇의 현재 위치와 센서 데이터간의 차이가 이 값 이내로 허용됨</li>
+  <li>obstacle_range: costmap 상에서 장애물을 인지할 최대 거리를 의미함</li>
+  <li>raytrace_range: 주어진 센서값으로 얼마나 탐지 및 초기화할 것인지에 대한 거리</li>
+  <li>inflation_radius: 장애물 주변 팽창(패딩) 거리, 로봇이 장애물에 가까이 다가가지 않도록 해줌</li>
+</ul>
+
+<p>정도가 있다.</p>
+
+<p>다음은 <strong>local_costmap_params.yaml</strong>이다.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">local_costmap</span><span class="pi">:</span>
+  <span class="na">global_frame</span><span class="pi">:</span> <span class="s">odom</span> <span class="c1"># map</span>
+  <span class="na">robot_base_frame</span><span class="pi">:</span> <span class="s">base_link</span>
+  <span class="na">update_frequency</span><span class="pi">:</span> <span class="m">5.0</span>
+  <span class="na">publish_frequency</span><span class="pi">:</span> <span class="m">2.0</span>
+  <span class="na">static_map</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">rolling_window</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">width</span><span class="pi">:</span> <span class="m">4.5</span>
+  <span class="na">height</span><span class="pi">:</span> <span class="m">4.5</span>
+  <span class="na">resolution</span><span class="pi">:</span> <span class="m">0.05</span>
+  <span class="na">transform_tolerance</span><span class="pi">:</span> <span class="m">0.3</span>
+  <span class="na">inflation_radius</span><span class="pi">:</span>     <span class="m">0.1</span>
+  
+  <span class="na">plugins</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="pi">{</span><span class="nv">name</span><span class="pi">:</span> <span class="nv">static_layer</span><span class="pi">,</span>        <span class="nv">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">costmap_2d::StaticLayer"</span><span class="pi">}</span>
+   <span class="pi">-</span> <span class="pi">{</span><span class="nv">name</span><span class="pi">:</span> <span class="nv">obstacle_layer</span><span class="pi">,</span>      <span class="nv">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">costmap_2d::ObstacleLayer"</span><span class="pi">}</span>
+   <span class="pi">-</span> <span class="pi">{</span><span class="nv">name</span><span class="pi">:</span> <span class="nv">inflation_layer</span><span class="pi">,</span>     <span class="nv">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">costmap_2d::InflationLayer"</span><span class="pi">}</span>
+</code></pre></div></div>
+<ul>
+  <li>global_frame: costmap이 실행되는 기준 좌표계</li>
+  <li>update_frequency: costmap 갱신 주기(Hz)</li>
+  <li>publish_frequency: costmap의 시각화(visulization) 퍼블리시 주기(Hz)</li>
+  <li>static_map: costmap이 외부에서 (저장된)지도를 (map_server를 사용해서)가져오는지 여부</li>
+  <li>rolling_window: 로봇이 전진할 때, costmap이 로봇을 중심으로 하는지 여부</li>
+  <li>width, height, resolution(meters/cell): costmap의 너비, 높이, 해상도 설정, 해상도는 사용하는 static map의 해상도(map.yaml??)과 달라도 괜찮으나, 보통 동일하게 설정</li>
+  <li>transform_tolerance, inflation_radius는 위와 동일</li>
+  <li>plugins: local_costmap에 적용할 레이어(플러그인)을 설정하는 부분
+    <ul>
+      <li>static_layer: 정적 맵 레이어, 외부에서 제공되는 지도정보를 기반으로 만들어진 costmap layer</li>
+      <li>obstacle_layer: 로봇 주변 장애물 기반 costmap layer</li>
+      <li>inflation_layer: 장애물 주변의 cost를 높인 팽창 layer</li>
+    </ul>
+  </li>
+</ul>
+
+<p>이어서 <strong>global_costmap_params.yaml</strong>이다.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">global_costmap</span><span class="pi">:</span>
+  <span class="na">global_frame</span><span class="pi">:</span> <span class="s">/map</span>
+  <span class="na">robot_base_frame</span><span class="pi">:</span> <span class="s">base_link</span>
+  <span class="na">update_frequency</span><span class="pi">:</span> <span class="m">5.0</span>
+  <span class="na">publish_frequency</span><span class="pi">:</span> <span class="m">0.5</span>
+  <span class="na">static_map</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">transform_tolerance</span><span class="pi">:</span> <span class="m">0.3</span>
+
+  <span class="na">plugins</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="pi">{</span><span class="nv">name</span><span class="pi">:</span> <span class="nv">static_layer</span><span class="pi">,</span>            <span class="nv">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">costmap_2d::StaticLayer"</span><span class="pi">}</span>
+    <span class="pi">-</span> <span class="pi">{</span><span class="nv">name</span><span class="pi">:</span> <span class="nv">obstacle_layer</span><span class="pi">,</span>          <span class="nv">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">costmap_2d::VoxelLayer"</span><span class="pi">}</span>
+    <span class="pi">-</span> <span class="pi">{</span><span class="nv">name</span><span class="pi">:</span> <span class="nv">inflation_layer</span><span class="pi">,</span>         <span class="nv">type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">costmap_2d::InflationLayer"</span><span class="pi">}</span>
+</code></pre></div></div>
+<p>이미 위에서 다 언급된 파라미터이기 때문에 따로 설명하지 않는다. 위에서 정리한 파라미터들은 <a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup#Costmap_Configuration_.28local_costmap.29_.26_.28global_costmap.29">Navigation Configuration ROS Wiki</a>를 기반으로 작성하였다. 전체 costmap 옵션 대한 설명은 <a href="http://wiki.ros.org/costmap_2d">costmap_2d ROS Wiki</a>를 참고하면 된다.</p>
+
+<h3 id="base-local-planner-configuration">Base Local Planner Configuration</h3>
+<p>base_local_planner는 로봇의 베이스의 속도 명령을 계산하는 역할을 한다, 즉 평면상에서 모바일 베이스를 구동하는 컨트롤러를 제공한다. planner는 각 경로에 해당하는 grid cell들의 cost가 최소가 되도록 경로를 생성한다. 다음은 예시가 되는 DWA 알고리즘의 그림이다.
+<img src="/assets/img/project/rbiz/move_base/local_plan.png" alt="dwa" /></p>
+
+<p>base_local_planner에 대한 더 자세한 설명은 <a href="http://wiki.ros.org/base_local_planner">base_local_planner ROS Wiki</a>를 참고하자.<br />
+base_local_planner 파라미터는 당연히 사용자가 가지고 있는 로봇의 스펙에 맞춰 작성해야 한다.</p>
+
+<p>다음은 나의 <strong>base_local_planner.yaml</strong>파일이다.</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">TrajectoryPlannerROS</span><span class="pi">:</span>
+  <span class="c1"># 로봇의 속도에 관한 파라미터</span>
+  <span class="na">max_vel_x</span><span class="pi">:</span> <span class="s">2.0</span> 
+  <span class="na">min_vel_x</span><span class="pi">:</span> <span class="m">0.1</span>
+  <span class="na">max_vel_theta</span><span class="pi">:</span> <span class="m">1.0</span>
+  <span class="na">min_vel_theta</span><span class="pi">:</span> <span class="s">-1.0</span>
+  <span class="na">min_in_place_vel_theta</span><span class="pi">:</span> <span class="m">1.0</span>
+
+  <span class="c1"># 로봇의 가속도에 관한 파라미터</span>
+  <span class="na">acc_lim_x</span><span class="pi">:</span> <span class="m">3.0</span>
+  <span class="na">acc_lim_theta</span><span class="pi">:</span>  <span class="m">2.5</span>
+
+  <span class="na">holonomic_robot</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">escape_vel</span><span class="pi">:</span> <span class="s">-0.2</span>
+
+  <span class="c1"># 목표지점 도달 허용범위</span>
+  <span class="na">yaw_goal_tolerance</span><span class="pi">:</span> <span class="m">0.157</span>
+  <span class="na">xy_goal_tolerance</span><span class="pi">:</span> <span class="m">0.25</span>
+  <span class="na">latch_xy_goal_tolerance</span><span class="pi">:</span> <span class="no">false</span>
+
+  <span class="c1"># 전방 시뮬레이션 파라미터</span>
+  <span class="na">sim_time</span><span class="pi">:</span> <span class="m">1.0</span>
+  <span class="na">sim_granularity</span><span class="pi">:</span> <span class="m">0.02</span>
+  <span class="na">angular_sim_granularity</span><span class="pi">:</span> <span class="m">0.02</span>
+  <span class="na">vx_samples</span><span class="pi">:</span> <span class="m">6</span>
+  <span class="na">vtheta_samples</span><span class="pi">:</span> <span class="m">20</span>
+  <span class="na">controller_frequency</span><span class="pi">:</span> <span class="m">20.0</span>
+
+  <span class="c1"># Trajectory scoring parameters</span>
+  <span class="na">meter_scoring</span><span class="pi">:</span> <span class="no">true</span> <span class="c1"># Whether the gdist_scale and pdist_scale parameters should assume that goal_distance and path_distance are expressed in units of meters or cells. Cells are assumed by default (false).</span>
+  <span class="na">occdist_scale</span><span class="pi">:</span>  <span class="m">0.1</span> <span class="c1">#The weighting for how much the controller should attempt to avoid obstacles. default 0.01</span>
+  <span class="na">path_dist_scale_bias</span><span class="pi">:</span> <span class="m">2.5</span>  <span class="c1">#     The weighting for how much the controller should stay close to the path it was given . default 0.6</span>
+  <span class="na">goal_dist_scale_bias</span><span class="pi">:</span> <span class="m">1.0</span> <span class="c1">#     The weighting for how much the controller should attempt to reach its local goal, also controls speed  default 0.8</span>
+
+  <span class="na">heading_lookahead</span><span class="pi">:</span> <span class="m">0.1</span>  <span class="c1">#How far to look ahead in meters when scoring different in-place-rotation trajectories</span>
+  <span class="na">heading_scoring</span><span class="pi">:</span> <span class="no">false</span>  <span class="c1">#Whether to score based on the robot's heading to the path or its distance from the path. default false</span>
+  <span class="na">heading_scoring_timestep</span><span class="pi">:</span> <span class="m">0.8</span>   <span class="c1">#How far to look ahead in time in seconds along the simulated trajectory when using heading scoring (double, default: 0.8)</span>
+  <span class="na">dwa</span><span class="pi">:</span> <span class="no">true</span> <span class="c1">#Whether to use the Dynamic Window Approach (DWA)_ or whether to use Trajectory Rollout</span>
+  <span class="na">simple_attractor</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">publish_cost_grid_pc</span><span class="pi">:</span> <span class="no">true</span>
+
+  <span class="c1">#Oscillation Prevention Parameters</span>
+  <span class="na">oscillation_reset_dist</span><span class="pi">:</span> <span class="m">0.25</span> <span class="c1">#How far the robot must travel in meters before oscillation flags are reset (double, default: 0.05)</span>
+  <span class="na">escape_reset_dist</span><span class="pi">:</span> <span class="m">0.1</span>
+  <span class="na">escape_reset_theta</span><span class="pi">:</span> <span class="m">0.1</span>
+
+<span class="c1"># BaseGlobalPlanner:</span>
+<span class="c1">#   allow_unknown: false</span>
+<span class="c1">#   use_dijkstra: false #Use A* instead</span>
+<span class="c1">#   use_quadratic: true</span>
+<span class="c1">#   use_grid_path: false</span>
+<span class="c1">#   old_navfn_behavior: false</span>
+
+</code></pre></div></div>
+<p>간단한 파라미터는 주석을 달아놓았으며, 그 외 설명은 다음과 같다.</p>
+<ul>
+  <li>holonomic_robot: holonomic 로봇 기반 속도명령을 생성할지 여부</li>
+  <li>escape_vel: 로봇의 탈출 속도(m/s), 로봇이 실제로 후진해서 탈출하기 위해서는 음수값이어야 함</li>
+  <li>sim_time: 궤적을 전방 시뮬레이션하는데 걸리는 시간</li>
+  <li>sim_granularity: 주어진 궤적에서 점 사이 간격(m)</li>
+  <li>vx_sample: x속도 공간을 탐사할때 사용하는 샘플의 개수</li>
+</ul>
+
+<p>등이고, 모든 파라미터에 대한 설명은 <a href="http://wiki.ros.org/base_local_planner#TrajectoryPlannerROS">base_local_planner ROS Wiki</a>를 참고하자.</p>
+
+<h3 id="move_base-configuration">move_base configuration</h3>
+<p>마지막으로, <strong>move_base_params.yaml</strong>에 관한 설명이다.</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">shutdown_costmaps</span><span class="pi">:</span> <span class="no">false</span>
+
+<span class="na">controller_frequency</span><span class="pi">:</span> <span class="m">20.0</span>
+<span class="na">controller_patience</span><span class="pi">:</span> <span class="m">15.0</span>
+
+<span class="na">planner_frequency</span><span class="pi">:</span> <span class="m">20.0</span>
+<span class="na">planner_patience</span><span class="pi">:</span> <span class="m">5.0</span>
+
+<span class="na">oscillation_timeout</span><span class="pi">:</span> <span class="m">0.0</span>
+<span class="na">oscillation_distance</span><span class="pi">:</span> <span class="m">0.5</span>
+
+<span class="na">recovery_behavior_enabled</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">clearing_rotation_allowed</span><span class="pi">:</span> <span class="no">false</span> <span class="c1"># true, 로봇이 회전을 통해 효과적으로 장애물을 제거하거나 회피할 수 있다면 true로 설정하는 것이 좋을 수 있습니다</span>
+</code></pre></div></div>
+<ul>
+  <li>shutdown_costmaps: move_base가 비활성화 상태일때 costmap도 중지할 것인지 여부</li>
+  <li>controller_frequency: 로봇 베이스에 속도 명령을 전달하는 주기 및 제어 주기(Hz)</li>
+  <li>controller_patience: 공간 초기화 작업을 수행하기 전에 컨트롤러가 제어를 받지 않고 몇초간 기다릴 것인가</li>
+  <li>planner_frequency: global planning loop를 수행하기 위한 주기(Hz), 0.0으로 설정 시, 새로운 goal을 받거나 local planner가 경로가 막혔다고 판단하는 경우에만 global planner가 동작</li>
+  <li>planner_patience: planner가 공간 초기화 작업을 수행하기 전 유요한 계획을 찾기 위해 몇초간 기다릴 것인가</li>
+  <li>oscillation_timeout: 복구 동작을 실행하기 전 진동을 허용하는 시간(초), 0.0으로 설정 시 infinite timeout</li>
+  <li>oscillation_distance: 로봇이 진동하지 않는다고 간주되기 위해 얼마나 움직여야 하는지(m)</li>
+  <li>recovery_behavior_enabled: 공간을 초기화하기 위해서 move_base 복구 동작(recovery behavior)를 사용할 것인지 여부</li>
+  <li>clearing_rotation_allowed: 로봇이 공간을 초기화하기 위해 제자리 회전을 시도할 것인지 여부, 로봇이 회전을 통해 효과적으로 장애물을 제거하거나 회피할 수 있다면 true로 설정</li>
+</ul>
+
+<p>move_base_params에 대한 모든 파라미터 설명은 <a href="http://wiki.ros.org/move_base#Parameters">move_base ROS Wiki</a>를 참고하자.</p>
+
+
+  </article>
+</div>
+
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/articles/2023-08/move_base" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/articles/2023-08/move_base" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://localhost:4000/articles/2023-08/move_base" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u=http://localhost:4000/articles/2023-08/move_base" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url=http://localhost:4000/articles/2023-08/move_base" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'https-daidalos99-github-io';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+        <footer>
+  &copy; 2024 daidalos99. Powered by <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://localhost:4000/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/main.js"></script>
+
+
+</body>
+</html>

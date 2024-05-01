@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="C++ 복습(4) - 함수와 참조C++의 메모리 종류C++에서, 프로그램 실행을 위한 메모리(RAM)의 영역은 다음과 같다.  Code          프로그램 실행코드, 기계어        Data          전역변수, 정적변수(static): 프로그램 시작시 할당, 종료시...">
+  <meta name="keywords" content="blog, jekyll, code, C++, cpp, and simulation">
+  <meta name="author" content="C++ 복습 | daidalos99">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f5">
+
+  <!-- Twitter Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="C++ 복습 | daidalos99">
+  <meta name="twitter:description" content="C++ 복습(4) - 함수와 참조C++의 메모리 종류C++에서, 프로그램 실행을 위한 메모리(RAM)의 영역은 다음과 같다.  Code          프로그램 실행코드, 기계어        Data          전역변수, 정적변수(static): 프로그램 시작시 할당, 종료시...">
+  
+    <meta property="twitter:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="http://localhost:4000/articles/2023-07/C++_bash_up_4">
+  <meta property="og:title" content="C++ 복습 | daidalos99">
+  <meta property="og:description" content="C++ 복습(4) - 함수와 참조C++의 메모리 종류C++에서, 프로그램 실행을 위한 메모리(RAM)의 영역은 다음과 같다.  Code          프로그램 실행코드, 기계어        Data          전역변수, 정적변수(static): 프로그램 시작시 할당, 종료시...">
+  
+    <meta property="og:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+  <title>C++ 복습 | daidalos99</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+
+  <link rel="canonical" href="http://localhost:4000/articles/2023-07/C++_bash_up_4">
+  <link rel="alternate" type="application/rss+xml" title="daidalos99" href="http://localhost:4000/feed.xml" />
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <a href="http://localhost:4000/">
+    <img src="http://localhost:4000/img/leonids-logo.png" alt="" class="avatar">
+  </a>
+  
+  <a href="http://localhost:4000/" class="author_name">daidalos99</a>
+  <span class="author_job">developer & engineer</span>
+  <span class="author_bio mbm">daidalos99's code vault</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="http://localhost:4000/">home</a>
+      </li>
+         
+      <li class="nav-item">
+        <a href="http://localhost:4000/archive/">Archive</a>
+      </li>
+            
+      <li class="nav-item">
+        <a href="http://localhost:4000/categories/">Categories</a>
+      </li>
+          
+      <li class="nav-item">
+        <a href="http://localhost:4000/resume/">Resume</a>
+      </li>
+        
+      <li class="nav-item">
+        <a href="http://localhost:4000/tags/">Tags</a>
+      </li>
+         
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+      <li>
+      <script>gen_mail_to_link('daidalos0430@gmail.com', 'Hello from website');</script>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="http://github.com/Daidalos99" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        <a class="btn" href= "http://localhost:4000/" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="C++ 복습">C++ 복습</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        12 JUL 2023
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    2 mins read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <h2 id="c-복습4---함수와-참조">C++ 복습(4) - 함수와 참조</h2>
+<h4 id="c의-메모리-종류">C++의 메모리 종류</h4>
+<p>C++에서, 프로그램 실행을 위한 메모리(RAM)의 영역은 다음과 같다.</p>
+<ul>
+  <li>Code
+    <ul>
+      <li>프로그램 실행코드, 기계어</li>
+    </ul>
+  </li>
+  <li>Data
+    <ul>
+      <li>전역변수, 정적변수(static): 프로그램 시작시 할당, 종료시 소멸</li>
+    </ul>
+  </li>
+  <li>Heap
+    <ul>
+      <li>메모리 동적할당</li>
+    </ul>
+  </li>
+  <li>Stack
+    <ul>
+      <li>지역변수, 매개변수: 함수 호출시 할당, 함수 종료시 소멸</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="함수의-인자-전달-방식">함수의 인자 전달 방식</h4>
+<ul>
+  <li>값에 의한 호출(call by value)
+    <ul>
+      <li>함수를 호출하는 코드에서 넘어온 <strong>값</strong>이 매개변수에 <strong>복사</strong>됨.<br />
+<img src="/assets/img/study/cpp/c++_bash_up_4/call_by_val.png" alt="call_by_val" /></li>
+    </ul>
+  </li>
+  <li>주소에 의한 호출(call by address)
+    <ul>
+      <li>함수를 호출하는 코드에서 넘어온 <strong>주소값</strong>이 매개변수에 <strong>저장</strong>됨
+<img src="/assets/img/study/cpp/c++_bash_up_4/call_by_add.png" alt="call_by_add" /></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="객체-치환-및-객체-리턴">객체 치환 및 객체 리턴</h4>
+<ul>
+  <li>객체 치환
+    <ul>
+      <li>동일한 클래스 타입의 객체끼리 치환 가능</li>
+      <li>객체의 모든 데이터가 비트 단위로 복사</li>
+      <li>
+        <pre><code class="language-C++">Circle c1(5);
+Circle c2(30);
+c1 = c2; // c2 객체를 c1 객체에 비트 단위 복사, c1의 반지름이 30이 됨
+// 치환된 두 객체는 내용물은 같지만 공간은 독립적임
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>객체 리턴
+    <ul>
+      <li>
+        <pre><code class="language-C++">Circle getCircle(){
+    Circle tmp(30);
+    return tmp; //객체 tmp 리턴
+}
+
+Circle c; // c의 반지름 1
+c = getCircle(); // tmp 객체의 복사본이 c에 치환, c의 반지름은 30이 됨
+</code></pre>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="참조">참조</h4>
+<p>참조 변수 선언</p>
+<ul>
+  <li>참조자: <strong>&amp;</strong></li>
+  <li>이미 존재하는 변수에 대해 다른 이름(별칭)을 선언
+    <ul>
+      <li>이름만 다르게 부르며, 같은 메모리 공간을 가리킴</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>참조에 의한 호출(call by reference)</strong></p>
+<ul>
+  <li>참조를 가장 많이 활용하는 사례</li>
+  <li>함수의 매개변수를 참조 타입(&amp;)으로 선언
+    <ul>
+      <li>즉, 함수의 매개변수를 참조 타입으로 받는다면, <strong>함수를 호출하는 부분에서 넣어준 매개변수에 직접 접근해 바로 수정할 수 있게 해준다.</strong>
+<img src="/assets/img/study/cpp/c++_bash_up_4/call_by_ref.png" alt="call_by_ref" /></li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>참조 리턴</strong>
+C언어와 다르게 C++의 함수 리턴은</p>
+<ul>
+  <li>값 외에 참조 리턴이 가능하다</li>
+  <li>참조 리턴: 변수 등과 같이 현존하는 공간에 대해 참조 리턴</li>
+</ul>
+
+<p><strong>즉 , 참조 리턴은 함수에서 현존하는 공간의 별칭을 리턴한다고 볼 수 있다.</strong><br />
+참조 리턴 함수의 예시는 아래와 같다.</p>
+<pre><code class="language-C++">char c = 'a';
+
+char&amp; find(){ // char 타입의 참조 리턴
+    return c; // 변수 c에 대한 참조 리턴
+}
+
+char a = find(); // a = 'a'가 됨, a는 c변수의 복사본
+
+char &amp;ref = find(); // find()가 리턴한 공간에 'a' 문자 저장, ref는 c 변수를 참조하게 됨
+ref = 'M' // c = 'M', ref를 통해 c 변수에 접근하여 그 값을 'M' 문자로 변경
+
+find() = 'b'; // find() 함수 호출을 통해 반환된 참조를 통해 c = 'b'가 됨
+</code></pre>
+<p>사실 참조에 의한 호출 부분은 별로 안헷갈리는데, 참조 리턴 부분이 충분히 헷갈릴 수 있을 것 같다. 이에 주의하면서 복습해야겠다.</p>
+
+<p>또 다른 간단한 참조 리턴 함수 예시</p>
+<pre><code class="language-C++">char&amp; find(char s[], index) {
+    return s[index];  
+    // 배열 s의 index번째 공간에 대한 참조 리턴
+}
+int main() {
+    char name[] = "Mike";
+    cout &lt;&lt; name &lt;&lt; endl;
+
+    find(name, 0) = 'S'; // name[0] = 'S'로 변경
+    // name = "Sike
+    cout &lt;&lt; name &lt;&lt; endl;
+
+    char&amp; ref = find(name, 2);  // 배열 name의 2번째 idx 공간을 ref라 별칭 붙임
+    ref = 't' // name = "Site"
+    cout &lt;&lt; name &lt;&lt; endl;
+}
+</code></pre>
+
+  </article>
+</div>
+
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/articles/2023-07/C++_bash_up_4" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/articles/2023-07/C++_bash_up_4" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://localhost:4000/articles/2023-07/C++_bash_up_4" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u=http://localhost:4000/articles/2023-07/C++_bash_up_4" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url=http://localhost:4000/articles/2023-07/C++_bash_up_4" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'https-daidalos99-github-io';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+        <footer>
+  &copy; 2024 daidalos99. Powered by <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://localhost:4000/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/main.js"></script>
+
+
+</body>
+</html>

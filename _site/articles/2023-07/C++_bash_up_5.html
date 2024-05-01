@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="C++ 복습(5) - 복사생성자와 함수중복C++의 객체 복사  얇은 복사(shallow copy)          객체 복사시, 객체의 멤버를 1:1로 복사      객체의 사본은 원본 객체가 할당 받은 메모리를 공유함                  그러므로 원본과 사본중 하나만 ...">
+  <meta name="keywords" content="blog, jekyll, code, C++, cpp, and simulation">
+  <meta name="author" content="C++ 복습 | daidalos99">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f5">
+
+  <!-- Twitter Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="C++ 복습 | daidalos99">
+  <meta name="twitter:description" content="C++ 복습(5) - 복사생성자와 함수중복C++의 객체 복사  얇은 복사(shallow copy)          객체 복사시, 객체의 멤버를 1:1로 복사      객체의 사본은 원본 객체가 할당 받은 메모리를 공유함                  그러므로 원본과 사본중 하나만 ...">
+  
+    <meta property="twitter:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="http://localhost:4000/articles/2023-07/C++_bash_up_5">
+  <meta property="og:title" content="C++ 복습 | daidalos99">
+  <meta property="og:description" content="C++ 복습(5) - 복사생성자와 함수중복C++의 객체 복사  얇은 복사(shallow copy)          객체 복사시, 객체의 멤버를 1:1로 복사      객체의 사본은 원본 객체가 할당 받은 메모리를 공유함                  그러므로 원본과 사본중 하나만 ...">
+  
+    <meta property="og:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+  <title>C++ 복습 | daidalos99</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+
+  <link rel="canonical" href="http://localhost:4000/articles/2023-07/C++_bash_up_5">
+  <link rel="alternate" type="application/rss+xml" title="daidalos99" href="http://localhost:4000/feed.xml" />
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <a href="http://localhost:4000/">
+    <img src="http://localhost:4000/img/leonids-logo.png" alt="" class="avatar">
+  </a>
+  
+  <a href="http://localhost:4000/" class="author_name">daidalos99</a>
+  <span class="author_job">developer & engineer</span>
+  <span class="author_bio mbm">daidalos99's code vault</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="http://localhost:4000/">home</a>
+      </li>
+         
+      <li class="nav-item">
+        <a href="http://localhost:4000/archive/">Archive</a>
+      </li>
+            
+      <li class="nav-item">
+        <a href="http://localhost:4000/categories/">Categories</a>
+      </li>
+          
+      <li class="nav-item">
+        <a href="http://localhost:4000/resume/">Resume</a>
+      </li>
+        
+      <li class="nav-item">
+        <a href="http://localhost:4000/tags/">Tags</a>
+      </li>
+         
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+      <li>
+      <script>gen_mail_to_link('daidalos0430@gmail.com', 'Hello from website');</script>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="http://github.com/Daidalos99" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        <a class="btn" href= "http://localhost:4000/" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="C++ 복습">C++ 복습</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        23 JUL 2023
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    6 mins read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <h2 id="c-복습5---복사생성자와-함수중복">C++ 복습(5) - 복사생성자와 함수중복</h2>
+<h4 id="c의-객체-복사">C++의 객체 복사</h4>
+<ul>
+  <li>얇은 복사(shallow copy)
+    <ul>
+      <li>객체 복사시, 객체의 멤버를 1:1로 복사</li>
+      <li>객체의 <strong>사본은 원본 객체가 할당 받은 메모리를 공유함</strong>
+        <ul>
+          <li>그러므로 원본과 사본중 하나만 수정해도 나머지 객체의 속성이 같이 바뀜</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>깊은 복사(deep copy)
+    <ul>
+      <li>객체 복사시, 객체의 멤버를 1:1로 복사</li>
+      <li>객체를 그 메모리 크기만큼 아예 다른 객체로 복사하는 것이므로, <strong>원본과 사본이 메모리를 공유하지 않음</strong>
+        <ul>
+          <li>원본과 사본을 따로 수정 가능</li>
+        </ul>
+      </li>
+      <li><img src="/assets/img/study/cpp/c++_bash_up_5/object_copy.png" alt="shallow_deep_copy" /></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="복사-생성자copy-constructor">복사 생성자(copy constructor)</h4>
+<ul>
+  <li>객체를 복사 생성시 호출되는 특별한 생성자</li>
+  <li>특징
+    <ul>
+      <li>한 클래스에 한개만 선언 가능</li>
+      <li><strong>자기 클래스에 대한 참조 매개변수(class&amp;)</strong>를 가지는 독특한 생성자</li>
+    </ul>
+  </li>
+  <li>복사 생성자 선언 예시
+    <ul>
+      <li>
+        <pre><code class="language-C++">class Circle {
+    ...
+    Circle(Circle &amp;c); // 복사 생성자 선언
+    ...
+}
+
+Circle::Circle(Circle&amp; c){ // 복사 생성자 구현부
+    ...
+}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>복사 생성자 사용 예시
+    <ul>
+      <li>
+        <pre><code class="language-C++">int main() {
+    Circle src; // 디폴트 생성자를 사용하여 Circle 객체를 만듦
+    Circle dest(src); // dest 객체의 복사 생성자를 호출하여 src객체의 속성을 복사
+}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+  <li>복사 생성자가 선언되지 않은 클래스의 경우, 컴파일러가 자동으로 <strong>디폴트 복사 생성자</strong>를 삽입
+    <ul>
+      <li>
+        <pre><code class="language-C++">class Circle {  
+    int radius;
+public:
+    Circle(int r);  // 복사 생성자 없음
+    double getArea();
+}
+
+Circle src(10);
+Circle dest(src); // 디폴트 복사 생성자 Circle(Circle&amp;)를 호출  
+    
+// 디폴트 복사 생성자 예시
+Circle::Circle(Circle&amp; c){
+    this-&gt;radius = c.radius;
+    // 원본 객체 c의 각 멤버를 사본(this)에 복사한다.
+}
+</code></pre>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>주의할 점</strong>: 디폴트 복사 생성자의 경우 얕은 복사로 인해 비정상 종료가 일어날 수 있음!!</p>
+
+<p><strong>얕은 복사로 인한 비정상 종료</strong> 예시</p>
+<pre><code class="language-C++">class Person {
+    char* name;
+    int id;
+public:
+    Person(int id, const char* name); // 생성자
+    ~Person(); // 소멸자
+    void changeName(const char *name);
+    void show(){ cout &lt;&lt; id &lt;&lt; ',' &lt;&lt; name &lt;&lt; endl;}
+};
+
+Person:: Person(int id, const char* name){ // 생성자
+    this-&gt;id = id;
+    int len = strlen(name); // name의 문자 개수
+    this-&gt;name = new char[len+1]; // name의 문자열 공간 동적할당
+    strcpy(this-&gt;name, name); // name에 문자열 복사
+}
+Person::~Pserson(){ // 소멸자
+    if(name) // 만일 name에 동적할당된 배열이 있으면
+        delete [] name; // 동적할당 메모리 소멸
+}
+void Person::changeName(const char* name){ // 이름 변경
+    if(strlen(name) &gt; strlen(this-&gt;name))
+        return;
+    strcpy(this-&gt;name, name);
+}
+// show 객체 구현부는 생략
+
+// 이 부분은 컴파일러에 의해 자동 삽입되는 디폴트 복사 생성자!!
+Person::Person(Person&amp; p){
+    this-&gt;id = p.id;
+    this-&gt;name = p.name;
+}
+</code></pre>
+<pre><code class="language-C++">int main() {
+    Person father(1, "Kitae");  // (1) father 객체 생성
+    Person daughter(father);    // (2) daughter 객체 복사 생성, 복사생성자 호출
+
+    father.show();              // (3) father 객체 출력
+    daughter.show();            // (3) daughter 객체 출력
+
+    daughter.changeName("Grace"); // (4) daughter 이름을 "Grace"로 변경
+    
+    father.show();              // (5) father 객체 출력
+    daughter.show();            // (5) daughter 객체 출력
+
+    return 0;                   // (6), (7) daughter, father 객체 소멸
+}
+</code></pre>
+<p><strong>깊은 복사 생성자로 수정</strong>하여 위에서 발생하는 오류를 해결할 수 있다.</p>
+<pre><code class="language-C++">class Person {
+    char* name;
+    int id;
+public:
+    Person(int id, const char* name); // 생성자
+    Person(Person&amp; person); // 복사 생성자
+    ...
+};
+
+Person::Person(Person&amp; person)
+{
+    this-&gt;id = person.id; //  id값 복사
+
+    // 깊은 복사가 이루어짐
+    int len = strlen(person.name); // name의 문자 개수
+    this-&gt; name = new char[len + 1]; // name을 위한 공간 할당
+    strcpy(this-&gt;name, person.name); // name의 문자열 복사
+
+    cout &lt;&lt; "복사 생성자 실행" &lt;&lt; this-&gt;name &lt;&lt; endl;
+}
+</code></pre>
+
+<p><strong>묵시적 복사 생성</strong> 예제</p>
+<pre><code class="language-C++">// 2. 값에 의한 호출로 객체가 전달될 때, person 객체의 복사 생성자 호출
+void f(Person person){
+    person.changeName("dummy");
+}
+
+Person g(){
+    Person mother(2, "Jane");
+    // 3. 함수에서 객체를 리턴할 때, mother 객체의 복사본 생성, 복사본의 복사 생성차 오출
+    return mother;
+}
+
+int main() {
+    Person father(1, "Kitae");
+    // 1. 객체로 초기화하여 객체가 생성될 때, son 객체의 복사 생성자 호출
+    Person son = father;
+    f(father);
+    g();
+}
+</code></pre>
+
+<h4 id="함수-중복function-overloading">함수 중복(Function Overloading)</h4>
+<p>C++에서 코드를 작성하다 보면, C언어와는 다르게 <strong>동일한 이름의 함수가 공존</strong>할 수 있다. namespace를 분리시키는 방법도 있지만, 여기서의 함수 중복은 그런 것이 아니다.</p>
+
+<p>단, 함수 중복을 하려면 아래와 같은 조건들을 만족시켜야 한다.</p>
+<ul>
+  <li>중복된 함수들의 이름이 동일해야 한다.</li>
+  <li>중복된 함수들의 매개 변수 타입이 다르거나 개수가 달라야 한다.</li>
+  <li>리턴 타입은 함수 중복과 무관한다.</li>
+</ul>
+
+<p>함수 중복을 하게 되면 함수의 이름을 구분하여 기억할 필요가 없고, 함수 호출을 잘못하는 실수를 줄일 수 있다.</p>
+
+<p>성공적인 함수 중복의 예시는 아래와 같다.</p>
+
+<pre><code class="language-C++">int sum(int a, int b, int c) {
+    return a+b+c;
+}
+
+double sum(double a, double b) {
+    return a+b;
+}
+
+int sum(int a, int b) {
+    return a+b;
+}
+
+int main() {
+    // 첫 번째 sum 함수 호출
+    cout &lt;&lt; sum(2, 5, 33);
+
+    // 두 번째 sum 함수 호출
+    cout &lt;&lt; sum(12.5, 33.6);
+
+    // 세 번째 sum 함수 호출
+    cout &lt;&lt; sum(2, 6);
+}
+</code></pre>
+
+<p>함수 중복 실패 사례는 아래와 같다.</p>
+
+<pre><code class="language-C++">int sum(int a, b) {
+    return a+b;
+}
+
+double sum(int a, int b) {
+    return (double)(a+b);
+}
+
+int main() {
+    cout &lt;&lt; sum(s, 5);
+}
+</code></pre>
+<p>이 경우 컴파일러는 어떤 sum() 함수를 호출하는지 구분할 수가 없다. 즉, 위에서 언급 한 세 번째 조건에 걸리게 되어 함수 중복에 실패한다. 위 예시와 같은 경우는 차라리 나중에 설명할 generic template 문법을 사용하여 달성할 수 있다.</p>
+
+<h4 id="생성자-함수-중복">생성자 함수 중복</h4>
+<p>이전의 게시물에서도 사용한 Circle 예시를 들어서 생성자 함수를 이해해 보자</p>
+<pre><code class="language-C++">class Circle {
+    ...
+public:
+    Circle() { radius = 1; }
+    Circle(int r) { radius = r; }
+    ...
+}
+
+int main() {
+    Circle donut;       // Circle() 생성자 호출
+    Circle pizza(30);   // Circle(int r) 생성자 호출
+}
+</code></pre>
+<p>위 처럼 생성자 함수를 중복시킬 수도 있다.</p>
+
+<h4 id="디폴트-매개변수">디폴트 매개변수</h4>
+<p>매개 변수 값이 넘어오지 않는 경우, 디폴트값을 받도록 선언된 매개변수이다.<br />
+<strong>주의 할 점:</strong> 매개변수가 여러 개인 함수의 경우, 아래와 같이 디폴트값을 받는 매개변수를 함수 선언시 맨 뒤로 위치시켜야 오류가 발생하지 않는다.</p>
+<pre><code class="language-C++">void calc(int a, int b=5, int c, int d=0);    // 이 경우 컴파일 오류 발생
+void calc(int a, int c, int b=5, int d=0);    // 이렇게 바꿔주면 컴파일 성공
+</code></pre>
+
+<h4 id="함수-중복-간소화">함수 중복 간소화</h4>
+<p>위에서 설명한 디폴트 매개변수를 사용해서 함수의 중복을 간소화할 수 있다.</p>
+
+<pre><code class="language-C++">class Circle {
+    ...
+public:
+    Circle() { radius=1; }
+    Circle(int r) { radius=r; }
+    ...
+}
+
+// 위의 중복되는 생성자 함수를 아래와 같이 
+// 디폴트 매개변수를 활용하여 간소화시킬 수 있다.
+class Circle {
+    ...
+public:
+    Circle(int r=1) { radius=r; }
+    ...
+}
+</code></pre>
+<p><strong>주의할 점:</strong> 디폴트 매개변수를 가진 함수는 (같은 이름을 가진) 다른 중복함수들과 같이 사용할 수 없다.</p>
+
+<h4 id="함수-중복의-모호성">함수 중복의 모호성</h4>
+<p>함수를 중복할때, 이를 애매하게 작성하면 컴파일러가 어떤 함수를 호출하는지 판단하지 못한다.</p>
+<ul>
+  <li>형 변환으로 인한 모호성</li>
+  <li>
+    <pre><code class="language-C++">float square(float a) {
+    return a*a;
+}
+
+double square(double a) {
+    return a*a;
+}
+
+int main() {
+    cout &lt;&lt; square(3.0);  // 3.0은 double, 모호하지 않음
+    cout &lt;&lt; square(3);    // 3이 double인지, float인지 모호함, 컴파일 오류 발생
+}
+</code></pre>
+  </li>
+  <li>참조 매개 변수로 인한 모호성
+    <pre><code class="language-C++">int add(int a, int b) {
+    return a+b;
+}
+
+int add(int a, int &amp;b) {
+    b = b+a;
+    return b;
+}
+
+int main() {
+    int s = 10, t = 20;
+    cout &lt;&lt; add(s, t); // 값에 의한 호출인지 참조에 의한 호출인지 애매함, 컴파일 오류 발생
+}
+</code></pre>
+  </li>
+  <li>디폴트 매개 변수로 인한 모호성
+    <pre><code class="language-C++">void msg(int id) {
+    cout &lt;&lt; id &lt;&lt; endl;
+}
+
+void msg(int id, string s="") {
+    cout &lt;&lt; id &lt;&lt; ":" &lt;&lt; s &lt;&lt; endl;
+}
+
+int main() {
+    msg(5, "Good Morning"); // 정상 컴파일, 두 번째 msg() 호출
+    msg(6); // 디폴트 매개변수를 사용하고 있는지 모호함, 컴파일 오류 발생
+}
+</code></pre>
+  </li>
+</ul>
+
+
+  </article>
+</div>
+
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/articles/2023-07/C++_bash_up_5" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/articles/2023-07/C++_bash_up_5" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://localhost:4000/articles/2023-07/C++_bash_up_5" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u=http://localhost:4000/articles/2023-07/C++_bash_up_5" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url=http://localhost:4000/articles/2023-07/C++_bash_up_5" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'https-daidalos99-github-io';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+        <footer>
+  &copy; 2024 daidalos99. Powered by <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://localhost:4000/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/main.js"></script>
+
+
+</body>
+</html>

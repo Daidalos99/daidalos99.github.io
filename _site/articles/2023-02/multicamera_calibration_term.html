@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="[용어정리] A Convenient Multi-Camera Self-Calibration for Virtual Environments나는 아직 선형대수학에 대한 지식도 해박하지 못하고, 또 컴퓨터비전을 잘 알지도 못하기 때문에 이 논문을 읽으면서 용어적인 제약이 꽤 있었다.따라서,...">
+  <meta name="keywords" content="blog, jekyll, code, C++, cpp, and simulation">
+  <meta name="author" content="A Convenient Multi-Camera Self-Calibration for Virtual Environments | daidalos99">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f5">
+
+  <!-- Twitter Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A Convenient Multi-Camera Self-Calibration for Virtual Environments | daidalos99">
+  <meta name="twitter:description" content="[용어정리] A Convenient Multi-Camera Self-Calibration for Virtual Environments나는 아직 선형대수학에 대한 지식도 해박하지 못하고, 또 컴퓨터비전을 잘 알지도 못하기 때문에 이 논문을 읽으면서 용어적인 제약이 꽤 있었다.따라서,...">
+  
+    <meta property="twitter:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="http://localhost:4000/articles/2023-02/multicamera_calibration_term">
+  <meta property="og:title" content="A Convenient Multi-Camera Self-Calibration for Virtual Environments | daidalos99">
+  <meta property="og:description" content="[용어정리] A Convenient Multi-Camera Self-Calibration for Virtual Environments나는 아직 선형대수학에 대한 지식도 해박하지 못하고, 또 컴퓨터비전을 잘 알지도 못하기 때문에 이 논문을 읽으면서 용어적인 제약이 꽤 있었다.따라서,...">
+  
+    <meta property="og:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+  <title>A Convenient Multi-Camera Self-Calibration for Virtual Environments | daidalos99</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+
+  <link rel="canonical" href="http://localhost:4000/articles/2023-02/multicamera_calibration_term">
+  <link rel="alternate" type="application/rss+xml" title="daidalos99" href="http://localhost:4000/feed.xml" />
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <a href="http://localhost:4000/">
+    <img src="http://localhost:4000/img/leonids-logo.png" alt="" class="avatar">
+  </a>
+  
+  <a href="http://localhost:4000/" class="author_name">daidalos99</a>
+  <span class="author_job">developer & engineer</span>
+  <span class="author_bio mbm">daidalos99's code vault</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="http://localhost:4000/">home</a>
+      </li>
+         
+      <li class="nav-item">
+        <a href="http://localhost:4000/archive/">Archive</a>
+      </li>
+            
+      <li class="nav-item">
+        <a href="http://localhost:4000/categories/">Categories</a>
+      </li>
+          
+      <li class="nav-item">
+        <a href="http://localhost:4000/resume/">Resume</a>
+      </li>
+        
+      <li class="nav-item">
+        <a href="http://localhost:4000/tags/">Tags</a>
+      </li>
+         
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+      <li>
+      <script>gen_mail_to_link('daidalos0430@gmail.com', 'Hello from website');</script>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="http://github.com/Daidalos99" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        <a class="btn" href= "http://localhost:4000/" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="A Convenient Multi-Camera Self-Calibration for Virtual Environments">A Convenient Multi-Camera Self-Calibration for Virtual Environments</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        15 FEB 2023
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    2 mins read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <h2 id="용어정리-a-convenient-multi-camera-self-calibration-for-virtual-environments">[용어정리] A Convenient Multi-Camera Self-Calibration for Virtual Environments</h2>
+
+<p>나는 아직 선형대수학에 대한 지식도 해박하지 못하고, 또 컴퓨터비전을 잘 알지도 못하기 때문에 이 논문을 읽으면서 용어적인 제약이 꽤 있었다.
+따라서, 본 논문을 한번 읽고, 모르는 용어에 대하여 한번 짚고 넘어가고자 한다. 후에 이 논문을 읽을 분(이 계실진 모르지만..)에게 도움이 되면 좋겠다.
+여러 용어들은 Linear Algebra, Camera Geometry, Epipolar Geometry 등으로 분류하여 정리하고자 하였다.<br />
+선형대수학 용어 정리에는 아래 링크(로스카츠의 AI 머신러닝 블로그의 정철원님 게시물)를 참고하였다.<br />
+<a href="https://losskatsu.github.io/linear-algebra/rank-dim/#%EC%B0%A8%EC%9B%90dimension">losskatsu.github.io</a></p>
+
+<h2 id="linear-algebra">Linear Algebra</h2>
+<ul>
+  <li><strong>Linear / Non Linear</strong></li>
+  <li><strong>Euclidian Stratification</strong></li>
+  <li><strong>Projective</strong></li>
+  <li><strong>SVD(Singular Value Decomposition)</strong></li>
+  <li><strong>Symmetric</strong></li>
+  <li><strong>Factorization(rank-n factorization)</strong></li>
+  <li><strong>Intersection</strong></li>
+  <li><strong>Basis(기저)</strong><br />
+  위키백과에 따르면, 기저는 다음과 같은 뜻을 지닌다.
+    <blockquote>
+      <p>선형대수학에서, 어떤 벡터 공간의 기저(basis)는 <strong>그 벡터 공간을 선형생성하는 선형독립인 벡터들</strong>이다. 달리 말해, 벡터 공간의 임의의 벡터에게 선형결합으로서 유일한 표현을 부여하는 벡터들이다.</p>
+    </blockquote>
+
+    <p>즉, 2차원 좌표평면을 예로 든다고 하면 \((1,0),(0,1)\)의 경우 여기에 각각 실수를 곱하고 더하면(이 벡터조합을 이용하면), 2차원 좌표평면의 <strong>어떤 벡터든지 나타낼 수 있다</strong>. 따라서 이는 2차원 좌표평면 나타내는 <strong>기저(basis)</strong>벡터라고 할 수 있다. \((x,0),(0,y)\)의 꼴이라면 모두 기저(basis)가 될 수 있지만, 기저를 구성하는 벡터의 수는 유일하다. 2차원의 경우 좌표평면을 구성하는 기저벡터는 2개이다. <strong>기저는 벡터공간을 생성하는 선형독립인 벡터이다.</strong></p>
+  </li>
+  <li><strong>Subspace</strong><br />
+  부분공간은 기저벡터로 만들 수 있는 전체 벡터공간의 일부분이다. 전체 공간이 3차원이면 그 기저벡터 3개중 일부인 2개 혹은 1개를 사용해서 만든 선이나 면이 부분공간이 될 것이다.</li>
+  <li><strong>Span</strong><br />
+  전체 벡터공간이 5차원이고, 3개의 기저 벡터 집합을 \(S\)라고 하고, 집합 \(S\)에 속하는 기저 벡터들로 구성되는 3차원 부분 공간을 \(W\)라고 했을 때 \(S\)는 부분 공간 \(W\)를 span한다고 말하고 \(W = span(S)\) 라고 표현한다. 위의 예에서는 전체가 5차원 이지만 기저벡터가 3차원까지만 표현 가능하므로, span되는 공간은 \(W = span(S) = 3\)차원이라고 할 수 있다.</li>
+  <li>
+    <p><strong>Rank</strong><br />
+  어떠한 행렬이 있을 때, 그 행렬의 열벡터에 의해 span된 벡터공간의 차원(위키)을 의미한다. 한 행렬의 행공간과 열공간은 차원이 같다고 할 수 있는데, 이러한 특성 떄문에 아래와 같은 성질이 성립한다.<br />
+  \[rank(A) = rank(A^T)\]</p>
+
+    <p>즉, 행렬 \(A\)의 랭크와 그 전치행렬의 랭크는 같다는 것이다.<br />
+  다음으로, 행렬 A가 \((n*m)\)일때, \(n=rank(A)\;or\;m=rank(A^T)\)이면 <strong>full rank</strong>라고 한다.</p>
+  </li>
+  <li><strong>Sub-matrix</strong></li>
+  <li><strong>Matrix Decomposition</strong></li>
+  <li><strong>(2D) Correlation</strong></li>
+</ul>
+
+<h2 id="camera-geometry">Camera Geometry</h2>
+<ul>
+  <li><strong>Orthogonal</strong></li>
+  <li><strong>Skew</strong></li>
+  <li><strong>Focal Length</strong></li>
+  <li><strong>Square Pixel</strong></li>
+  <li><strong>Occlusion</strong></li>
+  <li><strong>Intrinsic, Extrinsic Matrix</strong></li>
+</ul>
+
+<h2 id="epipolar-geometry">Epipolar Geometry</h2>
+<ul>
+  <li><strong>Coplanar(ity)</strong></li>
+  <li><strong>Functional Matrix</strong></li>
+  <li><strong>Homography</strong></li>
+  <li><strong>Epipole</strong></li>
+  <li><strong>Epipolar Geometry</strong></li>
+  <li><strong>Base-line</strong></li>
+</ul>
+
+<h2 id="image-processing-algorithm">Image Processing Algorithm</h2>
+<ul>
+  <li><strong>RANSAC(pairwise RANSAC analysis, RANSAC 7-point algorithm)</strong></li>
+</ul>
+
+<h2 id="etc">Etc.</h2>
+<ul>
+  <li><strong>Working Volume</strong></li>
+  <li><strong>Reconstruction</strong></li>
+  <li><strong>Bundle Adjustment(BA)</strong></li>
+</ul>
+
+<p>용어 정리를 마치고 보니 Tmi가 아닌가 싶기도 하지만, 덕분에 선형 대수학 및 비전 분야의 여러 언어를 다시금 상기시키는 계기가 되었다.</p>
+
+  </article>
+</div>
+
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/articles/2023-02/multicamera_calibration_term" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/articles/2023-02/multicamera_calibration_term" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://localhost:4000/articles/2023-02/multicamera_calibration_term" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u=http://localhost:4000/articles/2023-02/multicamera_calibration_term" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url=http://localhost:4000/articles/2023-02/multicamera_calibration_term" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'https-daidalos99-github-io';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+        <footer>
+  &copy; 2024 daidalos99. Powered by <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://localhost:4000/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/main.js"></script>
+
+
+</body>
+</html>

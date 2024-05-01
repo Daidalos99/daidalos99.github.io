@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Camera Calibration이 포스트에는 1년 전쯤 학부연구생을 하며 Camera Calibration에 대해 공부했던 내용들을 정리하였다.Camera Calibration이란 위와 같이 3차원인 세상을 2차원인 이미지로 담는 과정에서 발생하는 왜곡을 보정하는 것이라 할 수 ...">
+  <meta name="keywords" content="blog, jekyll, code, C++, cpp, and simulation">
+  <meta name="author" content="Camera Calibration | daidalos99">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f5">
+
+  <!-- Twitter Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Camera Calibration | daidalos99">
+  <meta name="twitter:description" content="Camera Calibration이 포스트에는 1년 전쯤 학부연구생을 하며 Camera Calibration에 대해 공부했던 내용들을 정리하였다.Camera Calibration이란 위와 같이 3차원인 세상을 2차원인 이미지로 담는 과정에서 발생하는 왜곡을 보정하는 것이라 할 수 ...">
+  
+    <meta property="twitter:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="http://localhost:4000/articles/2023-02/camera_calibration">
+  <meta property="og:title" content="Camera Calibration | daidalos99">
+  <meta property="og:description" content="Camera Calibration이 포스트에는 1년 전쯤 학부연구생을 하며 Camera Calibration에 대해 공부했던 내용들을 정리하였다.Camera Calibration이란 위와 같이 3차원인 세상을 2차원인 이미지로 담는 과정에서 발생하는 왜곡을 보정하는 것이라 할 수 ...">
+  
+    <meta property="og:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+  <title>Camera Calibration | daidalos99</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+
+  <link rel="canonical" href="http://localhost:4000/articles/2023-02/camera_calibration">
+  <link rel="alternate" type="application/rss+xml" title="daidalos99" href="http://localhost:4000/feed.xml" />
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <a href="http://localhost:4000/">
+    <img src="http://localhost:4000/img/leonids-logo.png" alt="" class="avatar">
+  </a>
+  
+  <a href="http://localhost:4000/" class="author_name">daidalos99</a>
+  <span class="author_job">developer & engineer</span>
+  <span class="author_bio mbm">daidalos99's code vault</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="http://localhost:4000/">home</a>
+      </li>
+         
+      <li class="nav-item">
+        <a href="http://localhost:4000/archive/">Archive</a>
+      </li>
+            
+      <li class="nav-item">
+        <a href="http://localhost:4000/categories/">Categories</a>
+      </li>
+          
+      <li class="nav-item">
+        <a href="http://localhost:4000/resume/">Resume</a>
+      </li>
+        
+      <li class="nav-item">
+        <a href="http://localhost:4000/tags/">Tags</a>
+      </li>
+         
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+      <li>
+      <script>gen_mail_to_link('daidalos0430@gmail.com', 'Hello from website');</script>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="http://github.com/Daidalos99" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        <a class="btn" href= "http://localhost:4000/" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="Camera Calibration">Camera Calibration</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        15 FEB 2023
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    2 mins read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <h2 id="camera-calibration">Camera Calibration</h2>
+<!-- ![GitHub Logo](/images/logo.png) -->
+
+<p>이 포스트에는 1년 전쯤 학부연구생을 하며 <strong>Camera Calibration</strong>에 대해 공부했던 내용들을 정리하였다.</p>
+
+<p><img src="/assets/img/study/computervision/camera_calibration/slide01.PNG" alt="slide01" /></p>
+
+<p>Camera Calibration이란 위와 같이 <strong>3차원인 세상을 2차원인 이미지로</strong> 담는 과정에서 발생하는 <strong>왜곡을 보정하는 것</strong>이라 할 수 있다.
+이를 반드시 거쳐야만이 2d의 이미지가 실제 3d상의 공간좌표와 일치할 수 있으며, 이 과정은 영상 처리 및 컴퓨터 비전 분야에서 반드시 필요하다.</p>
+
+<p><img src="/assets/img/study/computervision/camera_calibration/slide02.PNG" alt="slide02" /></p>
+
+<p>Camera Calibration의 개념 이전에 카메라의 작동원리부터 알아야 한다. 고전적인 카메라는
+이미 많이 알려져 있듯이 바늘 구멍을 통해 외부의 상이 거꾸로 투영되는 형식이다.</p>
+
+<p>이때, 바늘구멍(렌즈)으로부터 상이 맺히는 곳(이미지 센서)까지의 거리가 초점거리 f 이다.<br />
+렌즈를 사용하는 카메라는 영상 왜곡의 가능성이 있기에, Camera Calibration이 필요하다.
+또한, <strong>실제 3차원 좌표계에서는 위쪽이 z축이지만, 카메라 좌표계(이미지 좌표계와 다름!!)에서는 광축(앞쪽)방향을 z축으로 둔다.</strong></p>
+
+<p><img src="/assets/img/study/computervision/camera_calibration/slide03.PNG" alt="slide03" /></p>
+
+<p>현대의 카메라에서는 바늘구멍 대신 렌즈를 사용하기에 왜곡이 발생한다.
+이때, 볼록렌즈의 사용으로 인해 발생하는 왜곡을 <strong>방사왜곡</strong>, 렌즈와 이미지센서의 중심이 틀어져서 발생하는 왜곡을 <strong>접선 왜곡</strong>이라고 한다.</p>
+
+<p><img src="/assets/img/study/computervision/camera_calibration/coordinates.jpg" alt="coordinates" /></p>
+
+<p>밑으로 넘어가기 전, 우선 좌표계에 대한 이해가 필요하다. 실제 세계의 물체를 카메라로 찍었을 때,
+그 이미지가 출력되는 과정은 다음과 같다. 먼저 <strong>세계 좌표계(world coordinates)</strong>에서 <strong>카메라 좌표계(camera coordinates)</strong>로
+한번 변환이 된다. 위에서 말했듯, 세계 좌표계는 위쪽이 z, 카메라 좌표계는 앞쪽을 z축으로 한다.<br />
+카메라 좌표계로 변환된 이미지는 이미지센서에 투영이 되는데 이를 <strong>이미지 좌표계((normalized) image coordinates)</strong>라 한다.</p>
+
+<p>이미지 좌표계는 원점(0, 0)이 왼쪽 위에 있는 좌상 좌표계를 사용하며, y축의 (+)방향이 아래쪽이다.<br />
+따라서, 카메라 좌표계(3d)에서 이미지 좌표계(2d)로의 변환이 한번 더 필요할 것이다.</p>
+
+<p><img src="/assets/img/study/computervision/camera_calibration/slide04.PNG" alt="slide04" /></p>
+
+<p>위는 Camera Calibration에서 사용되는 <strong>Camera Matrix</strong>이다. 이 행렬의 우항부터 뜯어보자.<br />
+우항의 세번째 행렬은 3차원 열벡터이며, 이의 4번째 원소 ‘1’은 scale을 나타낸다. 세계 좌표계야 당연히
+1의 비율을 가질 것이기에 1로 고정될 것이다. 이제, 이 앞에 위에서 필요하다고 한 변환들이 곱해져 나아가는 형태가 된다.</p>
+
+<p>이제, 우변의 나머지 행렬의 의미를 파악해보자. 우변은 앞에서부터 <strong>A[R|t][x y z 1]^T</strong>의 형태로도 쓸 수 있으며, 여기서 <strong>A는 camera coordinate to image coordinate(3d to 2d), [R|t]는 world coordinate to camera coordinate</strong>를 의미한다.
+<strong>A는 intrinsic (camera) matrix, [R|t]는 extrinsic (camera) matrix라고 한다.</strong></p>
+
+<p>A에서 <strong>f_x, f_y</strong>는 x, y방향으로의 초점거리(-렌즈와 이미지센서간의 정렬 정도)를 의미하며, 픽셀 단위로 나타난다. 
+A가 3d to 2d 변환행렬이므로 z성분은 따로 없다. 최신 카메라에서는 f_x, f_y를 거의 같다고 본다.</p>
+
+<p>다음으로 <strong>c_x, c_y</strong>는 카메라 렌즈에서 투영된 이미지에 내린 수선의 영상좌표이고, 만약 f_x, f_y가 둘다 0이라고 한다면,
+(c_x, c_y)는 이미지의 중심이 될 것이다.</p>
+
+<p>skew_cf_x는 <strong>비대칭 계수(skew coefficient)</strong>의 약자이며, 이미지센서의 cell array의 y축이 틀어진 정도를 나타낸다.
+그리고 오른쪽 아래 1은 scale 계수를 나타낸다.</p>
+
+<p>좌변의 <strong>[x y 1]^T</strong>는 이미지 평면(2d)상의 좌표를 나타낸 것이며 마찬가지로 1은 scale 계수이다.</p>
+
+<p><img src="/assets/img/study/computervision/camera_calibration/slide05.PNG" alt="slide05" /></p>
+
+<p>맨 왼쪽의 <strong>s</strong>는 scale 계수이다.</p>
+
+<p>Camera Matrix식의 전체적인 의미는 ‘세계 -&gt; 카메라 -&gt; 이미지평면’으로 투영된 이미지 평면선상의 좌표는 (x y 1)의 기본 이미지상의 좌표를 s배만큼 scale(곱)한 것이라고 볼 수 있다.</p>
+
+<p><img src="/assets/img/study/computervision/camera_calibration/slide06.PNG" alt="slide06" /></p>
+
+<p>여기서부터는 약간 말장난이라고도 볼 수 있다. 주로 Intrinsic Matrix A(K라고도 한다.)를 Camera Matrix라고 하고, 여기에 [R|t]를 곱한 것을 Projection Matrix라고 한다.
+Extrinsic Matrix <strong>[R|t]</strong>는 선형대수학에서 나오는 transform matrix와 동일하므로 따로 설명하지 않겠다.</p>
+
+
+  </article>
+</div>
+
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/articles/2023-02/camera_calibration" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/articles/2023-02/camera_calibration" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://localhost:4000/articles/2023-02/camera_calibration" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u=http://localhost:4000/articles/2023-02/camera_calibration" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url=http://localhost:4000/articles/2023-02/camera_calibration" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'https-daidalos99-github-io';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+        <footer>
+  &copy; 2024 daidalos99. Powered by <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://localhost:4000/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/main.js"></script>
+
+
+</body>
+</html>

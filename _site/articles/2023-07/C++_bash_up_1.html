@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="C++ 복습(1) - C++란?방학동안 여유를 가지고 그동안 헷갈렸던, 또 부족했던 내용들에 대해 복습하려고 한다. 그 첫번째는 C++ 복습이다.복습은 온전히 내가 헷갈리거나 강조하고 싶은 내용들 위주로 작성할 것이며, 2학년때 고급프로그래밍 수업을 들은 것을 기반으로 작성한다.순...">
+  <meta name="keywords" content="blog, jekyll, code, C++, cpp, and simulation">
+  <meta name="author" content="C++ 복습 | daidalos99">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f5">
+
+  <!-- Twitter Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="C++ 복습 | daidalos99">
+  <meta name="twitter:description" content="C++ 복습(1) - C++란?방학동안 여유를 가지고 그동안 헷갈렸던, 또 부족했던 내용들에 대해 복습하려고 한다. 그 첫번째는 C++ 복습이다.복습은 온전히 내가 헷갈리거나 강조하고 싶은 내용들 위주로 작성할 것이며, 2학년때 고급프로그래밍 수업을 들은 것을 기반으로 작성한다.순...">
+  
+    <meta property="twitter:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="http://localhost:4000/articles/2023-07/C++_bash_up_1">
+  <meta property="og:title" content="C++ 복습 | daidalos99">
+  <meta property="og:description" content="C++ 복습(1) - C++란?방학동안 여유를 가지고 그동안 헷갈렸던, 또 부족했던 내용들에 대해 복습하려고 한다. 그 첫번째는 C++ 복습이다.복습은 온전히 내가 헷갈리거나 강조하고 싶은 내용들 위주로 작성할 것이며, 2학년때 고급프로그래밍 수업을 들은 것을 기반으로 작성한다.순...">
+  
+    <meta property="og:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+  <title>C++ 복습 | daidalos99</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+
+  <link rel="canonical" href="http://localhost:4000/articles/2023-07/C++_bash_up_1">
+  <link rel="alternate" type="application/rss+xml" title="daidalos99" href="http://localhost:4000/feed.xml" />
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <a href="http://localhost:4000/">
+    <img src="http://localhost:4000/img/leonids-logo.png" alt="" class="avatar">
+  </a>
+  
+  <a href="http://localhost:4000/" class="author_name">daidalos99</a>
+  <span class="author_job">developer & engineer</span>
+  <span class="author_bio mbm">daidalos99's code vault</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="http://localhost:4000/">home</a>
+      </li>
+         
+      <li class="nav-item">
+        <a href="http://localhost:4000/archive/">Archive</a>
+      </li>
+            
+      <li class="nav-item">
+        <a href="http://localhost:4000/categories/">Categories</a>
+      </li>
+          
+      <li class="nav-item">
+        <a href="http://localhost:4000/resume/">Resume</a>
+      </li>
+        
+      <li class="nav-item">
+        <a href="http://localhost:4000/tags/">Tags</a>
+      </li>
+         
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+      <li>
+      <script>gen_mail_to_link('daidalos0430@gmail.com', 'Hello from website');</script>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="http://github.com/Daidalos99" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        <a class="btn" href= "http://localhost:4000/" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="C++ 복습">C++ 복습</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        11 JUL 2023
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    1 min read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <h2 id="c-복습1---c란">C++ 복습(1) - C++란?</h2>
+<p>방학동안 여유를 가지고 그동안 헷갈렸던, 또 부족했던 내용들에 대해 복습하려고 한다. 그 첫번째는 C++ 복습이다.</p>
+
+<p>복습은 온전히 내가 헷갈리거나 강조하고 싶은 내용들 위주로 작성할 것이며, 2학년때 고급프로그래밍 수업을 들은 것을 기반으로 작성한다.</p>
+
+<p>순전히 나의 복습을 위한 것이기 때문에 두서가 없을 수도 있다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">틀리거나 고칠 부분이 있다면 댓글은 환영입니다!</code></p>
+
+<h3 id="c의-표준">C++의 표준</h3>
+<ul>
+  <li>1998년 ANSI에서 C++언어에 대한 표준이 설정되었다.</li>
+  <li>연도에 따라 C++98, C++03, …, C++14, C++17, 등으로 표준이 업데이트 되고 있다.</li>
+</ul>
+
+<h3 id="c의-컴파일러">C++의 컴파일러</h3>
+<ul>
+  <li>Borland C++ Compiler</li>
+  <li>Visual C++ Compiler(msvc)</li>
+  <li>GNU C++ Compiler(gcc)</li>
+</ul>
+
+<h3 id="c언어에-추가된-기능">C언어에 추가된 기능</h3>
+<ul>
+  <li>함수 중복(function overloading)</li>
+  <li>디폴트 매개 변수(default parameter)</li>
+  <li>참조와 참조 변수(reference)</li>
+  <li>참조에 의한 호출(call-by-reference)</li>
+  <li>new/delete 연산자</li>
+  <li>연산자 재정의</li>
+  <li>Gerenic Function &amp; Class</li>
+</ul>
+
+<h3 id="빌드-과정">빌드 과정</h3>
+<p>타 언어와 마찬가지로, <strong>build = compile + link</strong>이다.
+<strong>Compile</strong>을 통해 <strong>소스 파일을 object(.o, .obj)파일로 변경</strong>하며, 이렇게 생성된 목적파일에 <strong>linking</strong> 과정을 통해 <strong>C++ 표준 라이브러리의 함수를 연결 및 실행 파일을 생성</strong>한다.</p>
+
+<blockquote>
+  <p><strong>Build = Compile + Link</strong></p>
+</blockquote>
+
+<h3 id="표준-라이브러리">표준 라이브러리</h3>
+<p>C++의 표준 라이브러리는 <strong>C 라이브러리, C++ 입출력 라이브러리, C++ STL 라이브러리</strong>의 3개 그룹으로 구분된다.
+몇 가지 예시는 아래와 같다.</p>
+<ul>
+  <li>C 라이브러리
+    <ul>
+      <li>cassert</li>
+      <li>cmath</li>
+      <li>cstring</li>
+      <li>etc…</li>
+    </ul>
+  </li>
+  <li>C++ 입출력 라이브러리
+    <ul>
+      <li>fstream</li>
+      <li>istream</li>
+      <li>iostream</li>
+      <li>ios</li>
+      <li>etc…</li>
+    </ul>
+  </li>
+  <li>C++ STL 라이브러리
+    <ul>
+      <li>algorithm</li>
+      <li>stack</li>
+      <li>map</li>
+      <li>string</li>
+      <li>etc…</li>
+    </ul>
+  </li>
+</ul>
+
+<p>C++ 표준 라이브러리에 관한 자세한 내용은 <a href="https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library">위키피디아 문서</a> 또는 <a href="https://en.cppreference.com/w/cpp/header">cppreference.com</a>를 참고하자.</p>
+
+<p>가독성을 위해서 다음 게시물에 이어서 포스팅할 것이다.</p>
+
+  </article>
+</div>
+
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/articles/2023-07/C++_bash_up_1" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/articles/2023-07/C++_bash_up_1" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://localhost:4000/articles/2023-07/C++_bash_up_1" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u=http://localhost:4000/articles/2023-07/C++_bash_up_1" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url=http://localhost:4000/articles/2023-07/C++_bash_up_1" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'https-daidalos99-github-io';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+        <footer>
+  &copy; 2024 daidalos99. Powered by <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://localhost:4000/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/main.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="C++ 복습(2) - 입출력,문자열,클래스와 객체입출력std::cout 객체는 스크린 출력 장치에 연결된 표준 C++ 출력 스트림 객체이다.이는 &lt;iostream&gt; 헤더파일 내에 선언이 되어있으며, namespace std에 선언되어있다.« 연산자는 스트림 삽입 연산자로...">
+  <meta name="keywords" content="blog, jekyll, code, C++, cpp, and simulation">
+  <meta name="author" content="C++ 복습 | daidalos99">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f5">
+
+  <!-- Twitter Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="C++ 복습 | daidalos99">
+  <meta name="twitter:description" content="C++ 복습(2) - 입출력,문자열,클래스와 객체입출력std::cout 객체는 스크린 출력 장치에 연결된 표준 C++ 출력 스트림 객체이다.이는 &amp;lt;iostream&amp;gt; 헤더파일 내에 선언이 되어있으며, namespace std에 선언되어있다.« 연산자는 스트림 삽입 연산자로...">
+  
+    <meta property="twitter:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="http://localhost:4000/articles/2023-07/C++_bash_up_2">
+  <meta property="og:title" content="C++ 복습 | daidalos99">
+  <meta property="og:description" content="C++ 복습(2) - 입출력,문자열,클래스와 객체입출력std::cout 객체는 스크린 출력 장치에 연결된 표준 C++ 출력 스트림 객체이다.이는 &amp;lt;iostream&amp;gt; 헤더파일 내에 선언이 되어있으며, namespace std에 선언되어있다.« 연산자는 스트림 삽입 연산자로...">
+  
+    <meta property="og:image" content="http://localhost:4000/img/leonids-logo.png">
+  
+  <title>C++ 복습 | daidalos99</title>
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="http://localhost:4000/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://localhost:4000/css/main.css">
+
+  <link rel="canonical" href="http://localhost:4000/articles/2023-07/C++_bash_up_2">
+  <link rel="alternate" type="application/rss+xml" title="daidalos99" href="http://localhost:4000/feed.xml" />
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <a href="http://localhost:4000/">
+    <img src="http://localhost:4000/img/leonids-logo.png" alt="" class="avatar">
+  </a>
+  
+  <a href="http://localhost:4000/" class="author_name">daidalos99</a>
+  <span class="author_job">developer & engineer</span>
+  <span class="author_bio mbm">daidalos99's code vault</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="http://localhost:4000/">home</a>
+      </li>
+         
+      <li class="nav-item">
+        <a href="http://localhost:4000/archive/">Archive</a>
+      </li>
+            
+      <li class="nav-item">
+        <a href="http://localhost:4000/categories/">Categories</a>
+      </li>
+          
+      <li class="nav-item">
+        <a href="http://localhost:4000/resume/">Resume</a>
+      </li>
+        
+      <li class="nav-item">
+        <a href="http://localhost:4000/tags/">Tags</a>
+      </li>
+         
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+      <li>
+      <script>gen_mail_to_link('daidalos0430@gmail.com', 'Hello from website');</script>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li><a href="http://github.com/Daidalos99" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        <a class="btn" href= "http://localhost:4000/" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="C++ 복습">C++ 복습</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        11 JUL 2023
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    2 mins read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <h2 id="c-복습2---입출력문자열클래스와-객체">C++ 복습(2) - 입출력,문자열,클래스와 객체</h2>
+
+<h3 id="입출력">입출력</h3>
+<p><strong>std::cout</strong> 객체는 <strong>스크린 출력 장치에 연결된 표준 C++ 출력 스트림 객체</strong>이다.
+이는 &lt;iostream&gt; 헤더파일 내에 선언이 되어있으며, namespace std에 선언되어있다.</p>
+
+<p><strong>«</strong> 연산자는 스트림 삽입 연산자로서, <strong>오른쪽 피연산자를 왼쪽 스트림 객체에 삽입</strong>한다.
+이 연산자는 &lt;ostream&gt; 클래스에 구현되어 있다.</p>
+
+<p><strong>std::cin</strong>은 <strong>표준 입력 장치인 키보드를 연결하는 C++ 입력 스트림 객체</strong>이다.
+cout과 마찬가지로 &lt;iostream&gt; 헤더파일 내에 선언되어있다.</p>
+
+<p><strong>»</strong> 연산자는 스트림 추출 연산자로, <strong>입력 스트림에서 값을 읽어 오른쪽 변수에 저장</strong>한다.</p>
+
+<h3 id="문자열">문자열</h3>
+<p>C++의 문자열 표현 방식에는 2가지가 있다.</p>
+<ul>
+  <li>C-string 방식(‘\0’으로 끝나는 문자 배열, include &lt;cstring&gt; or &lt;string.h&gt;)
+    <ul>
+      <li>char name1[6] = {‘G’, ‘r’, ‘a’, ‘c’, ‘e’, ‘\0’}; -&gt; name1은 문자열 “Grace”</li>
+      <li>char name2[5] = {‘G’, ‘r’, ‘a’, ‘c’, ‘e’}; -&gt; name2는 문자열이 아니라 단순 문자 배열</li>
+      <li>
+        <string.h> 보다는 <cstring>이 C++ 표준 방식
+</cstring></string.h>
+      </li>
+    </ul>
+  </li>
+  <li>string 클래스 이용(include &lt;string&gt;)
+    <ul>
+      <li>C++에서 강력 추천, 표준 클래스</li>
+      <li>문자열의 크기에 따른 제약 없음</li>
+      <li>C-string보다 다루기 쉬움</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>istream의 cin.getline()</strong></p>
+  <blockquote>
+    <p>cin.getline(char str, streamsize n);<br />
+cin.getline(char str, streamsize n, char dlim);</p>
+  </blockquote>
+</blockquote>
+
+<p>공백이 낀 문자열을 입력 받는 방법, delimitChar의 디폴트 값은 ‘\n’</p>
+
+<blockquote>
+  <p><strong>string의 getline</strong></p>
+  <blockquote>
+    <p>getline(istream&amp; is, string str);<br />
+getline(istream&amp; is, string str, char dlim);</p>
+  </blockquote>
+</blockquote>
+
+<p>&lt;iostream&gt;, &lt;fstream&gt;, &lt;string&gt;에 정의</p>
+
+<h3 id="클래스와-객체">클래스와 객체</h3>
+<p>클래스 생성자</p>
+<pre><code class="language-C++">class Circle {
+  ...
+  Circle();
+  Circle(int r);
+  ...
+}
+</code></pre>
+
+<p>위와 같이 한 클래스에서 여러개의 생성자를 중복해서 선언할 수 있다.
+생성자를 선언하지 않는다면 기본 생성자가 자동으로 생성된다.(이는 소멸자도 마찬가지이다)</p>
+
+<h4 id="위임-생성자">위임 생성자</h4>
+<ul>
+  <li>타겟 생성자: 객체 초기화를 전담하는 생성장</li>
+  <li>위임 생성자: 타겟 생성자를 호출하는 생성자, 객체 초기화를 타겟 생성자에 위임</li>
+</ul>
+
+<pre><code class="language-C++">// 위임 생성자
+Circle::Circle() : Circle(1) { }
+
+// 타겟 생성자
+Circle::Circle(int r){
+  radius = r;
+  cout &lt;&lt; "반지름 " &lt;&lt; radius &lt;&lt; " 원 생성" &lt;&lt; endl;
+}
+</code></pre>
+
+<p>또한 클래스의 멤버 변수는</p>
+<ul>
+  <li>생성자 코드에서 초기화</li>
+  <li>생성자 서두에서 초기값으로 초기화</li>
+  <li>클래스 선언부에서 직접 초기화
+가 가능하다.</li>
+</ul>
+
+<p>초기값으로 초기화 하는 예시는 아래와 같다.</p>
+<pre><code class="language-C++">// 생성자 매개변수가 없을 경우
+Point::Point() : x(0), y(0){ }
+
+// 생성자 매개변수가 있을 경우
+Point::Point(int a, int b) : x(a), y(b){ }
+</code></pre>
+
+<h4 id="접근-지정자">접근 지정자</h4>
+<ul>
+  <li><strong>private</strong>
+    <ul>
+      <li>동일한 클래스의 멤버 함수에만 제한됨</li>
+      <li>접근 지정자 미 정의시 디폴트값</li>
+    </ul>
+  </li>
+  <li><strong>public</strong>
+    <ul>
+      <li>모든 다른 클래스에 허용</li>
+    </ul>
+  </li>
+  <li><strong>protected</strong>
+    <ul>
+      <li>클래스 자신과 상속받은 자식 클래스에만 허용</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="인라인-함수">인라인 함수</h4>
+<ul>
+  <li>inline 키워드로 선언된 함수</li>
+  <li>짧은 함수의 경우, 함수를 호출 및 실행하는 오버헤드가 함수를 직접 실행하는 것보다 길기 때문에, 프로그램의 실행 속도 개선을 위해 사용</li>
+  <li>자동 인라인 함수
+    <ul>
+      <li>클래스 선언부에 구현된 멤버 함수는 컴파일러에 의해 자동으로 inline처리가 된다.</li>
+      <li>클래스 내부의 생성자를 포함한 모든 멤버함수가 자동 인라인 함수로 쓸 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>인라인 함수 사용 예시는 아래와 같다.</p>
+<pre><code class="language-C++">#include &lt;iostream&gt;
+
+inline int adder(int a, int b){
+  return a + b;
+}
+
+int main(void){
+  int num;
+  num = adder(3, 4);
+  return 0;
+}
+</code></pre>
+<p>위의 경우, 앞에 inline 해준 함수를 호출하는 것이 아니라, main문의 코드로 직접 들어가는 것과 같다. 이는 컴파일 과정에서 처리되며, 따라서 짧은 길이의 함수를 반복적으로 실행해야 하는 경우 매우 효율적이다.</p>
+
+  </article>
+</div>
+
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/articles/2023-07/C++_bash_up_2" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/articles/2023-07/C++_bash_up_2" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=http://localhost:4000/articles/2023-07/C++_bash_up_2" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u=http://localhost:4000/articles/2023-07/C++_bash_up_2" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url=http://localhost:4000/articles/2023-07/C++_bash_up_2" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'https-daidalos99-github-io';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+        <footer>
+  &copy; 2024 daidalos99. Powered by <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
+</footer>
+
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://localhost:4000/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="http://localhost:4000/js/main.js"></script>
+
+
+</body>
+</html>
