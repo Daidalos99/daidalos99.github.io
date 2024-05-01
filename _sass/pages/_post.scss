@@ -63,6 +63,8 @@ section.post {
 .post-meta {
   font-size: 13px;
   font-weight: bold;
+  padding-bottom: 5px;
+
 	.post-date {
 		color: $secondary;
 	}
@@ -88,9 +90,9 @@ a.read-more {
 // Post content
 
 #post {
-  padding-bottom: 10px;
+  padding-bottom: 50px;
   .post-header {
-    margin: 0 auto 10px;
+    margin: 0 auto 50px;
   }
 }
 
