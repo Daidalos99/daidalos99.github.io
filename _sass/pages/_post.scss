@@ -12,7 +12,7 @@
     padding: 50px 30px 0;
   }
   @include media-query($medium-screen) {
-    height: 100vh;
+    height: 0;
     overflow-y: scroll;
     position: initial;
     top: 0;
@@ -30,7 +30,7 @@
 
 // Post Section
 section.post {
-	margin-bottom: 40px;
+	margin-bottom: 80px;
 }
 
 // Back home button
