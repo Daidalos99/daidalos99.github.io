@@ -53,7 +53,7 @@ section.post {
 	color: $primary;
 	font-size: 14px;
 	margin-left: 10px;
-  //margin-bottom: 1px;
+  margin-bottom: 10px;
 	&:hover,
 	&:focus {
 		color: lighten($primary, 14%);
