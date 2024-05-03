@@ -30,7 +30,7 @@
 
 // Post Section
 section.post {
-	margin-bottom: 50px;  // 이 부분을 줄여야 간격이 줄어듦
+	margin-bottom: 60px;  // 이 부분을 줄여야 간격이 줄어듦
 }
 
 // Back home button
@@ -91,10 +91,10 @@ a.read-more {
 // Post content
 
 #post {
-  padding-bottom: 10px;
+  padding-bottom: 50px;
   .post-header {
-    margin: 0;
-    // margin: 0 auto 50px;
+    // margin: 0;
+    margin: 0 auto 50px;
   }
 }
 
