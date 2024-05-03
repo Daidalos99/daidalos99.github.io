@@ -46,14 +46,14 @@ section.post {
 
 // Post title
 .post-title {
-  margin-bottom: 1px;
+  //margin-bottom: 1px;
 }
 
 .post-title-link {
 	color: $primary;
 	font-size: 14px;
 	margin-left: 10px;
-  margin-bottom: 1px;
+  //margin-bottom: 1px;
 	&:hover,
 	&:focus {
 		color: lighten($primary, 14%);
@@ -64,7 +64,7 @@ section.post {
 .post-meta {
   font-size: 13px;
   font-weight: bold;
-  margin-bottom: 1px; // 메타정보 하단 간격
+  //margin-bottom: 1px; // 메타정보 하단 간격
 	.post-date {
 		color: $secondary;
 	}
