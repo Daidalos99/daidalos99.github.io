@@ -46,7 +46,7 @@ section.post {
 
 // Post title
 .post-title {
-  padding-bottom: 5px;
+  margin-bottom: 1px;
 }
 
 .post-title-link {
@@ -63,7 +63,7 @@ section.post {
 .post-meta {
   font-size: 13px;
   font-weight: bold;
-  margin-bottom: 1px;
+  margin-bottom: 1px; // 메타정보 하단 간격
 	.post-date {
 		color: $secondary;
 	}
