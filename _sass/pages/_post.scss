@@ -30,7 +30,7 @@
 
 // Post Section
 section.post {
-	margin-bottom: 30px;
+	margin-bottom: 30px;  // 이 부분을 줄여야 간격이 줄어듦
 }
 
 // Back home button
@@ -46,7 +46,7 @@ section.post {
 
 // Post title
 .post-title {
-
+  padding-bottom: 5px;
 }
 
 .post-title-link {
@@ -63,6 +63,7 @@ section.post {
 .post-meta {
   font-size: 13px;
   font-weight: bold;
+  margin-bottom: 5px;
 	.post-date {
 		color: $secondary;
 	}
