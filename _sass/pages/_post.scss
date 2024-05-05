@@ -5,7 +5,7 @@
   top: 350px;
   z-index: 233;
   width: 100%;
-  padding: 0;
+  padding: 20px 20px 0;
   -webkit-transform: translate3d(0,0,1px);
   transform: translate3d(0,0,1px);
   @include media-query($small-screen) {
@@ -62,6 +62,7 @@ section.post {
 
 // Post meta
 .post-meta {
+  margin-top: 5px;
   font-size: 13px;
   font-weight: bold;
   //margin-bottom: 1px; // 메타정보 하단 간격
